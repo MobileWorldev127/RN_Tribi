@@ -7,9 +7,9 @@
     "test": "jest"
   },
   "rnpm": {
-      "assets": [
-        "./app/assets/fonts/"
-      ]
+    "assets": [
+      "./app/assets/fonts/"
+    ]
   },
   "dependencies": {
     "native-base": "^2.3.3",
@@ -17,6 +17,7 @@
     "react-native": "0.54.2",
     "react-native-indicators": "^0.10.0",
     "react-native-iphone-x-helper": "^1.0.2",
+    "react-native-switch-pro": "^0.4.10",
     "react-navigation": "^1.0.0-beta.26",
     "react-navigation-redux-helpers": "^1.0.3",
     "react-redux": "^5.0.6",

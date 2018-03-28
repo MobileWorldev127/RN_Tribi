@@ -11,6 +11,7 @@ import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 
 import images from '../../../themes/images'
+import tabbarView from '../../dashboard/tabbarView/index';
 
 class welcome extends Component<{}>{
     static navigationOptions = {
@@ -27,10 +28,10 @@ class welcome extends Component<{}>{
     }
 
     onNext() {
-        alert('12')
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView'}));
     }
     
-  
     render(){
         return (
             <Container style={styles.container}>

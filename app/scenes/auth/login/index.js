@@ -88,7 +88,7 @@ class login extends Component<{}>{
             
         // })
         var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'welcome'}));
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView'}));
     }
 
     onSignup(){
@@ -114,7 +114,6 @@ class login extends Component<{}>{
                                     ref = 'username'
                                     style = {styles.inputTxt}
                                     onChangeText = { text => this.setState({ username: text })}
-                                    
                                     value = {this.state.username}
                                     placeholder = "Username"
                                     placeholderTextColor = "#4a6187"

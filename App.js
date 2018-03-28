@@ -25,6 +25,7 @@ export default class App extends Component<{}>{
   store = createStore(AppReducer, applyMiddleware(middleware));
 
   render(){
+      console.disableYellowBox = true;
       return (
           <Provider store = {this.store}>
               <AppWithNavigationState/>

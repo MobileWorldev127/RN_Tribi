@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -13,6 +14,8 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* TribiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TribiTests.m */; };
 		05ECD2614B8643F8B715C3E4 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC72C6AF380D44598B4A8CFB /* Foundation.ttf */; };
+		0AB3C13D726E40938192ED06 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9401DC45F1514C4CA3DDECD0 /* Lato-Bold.ttf */; };
+		0D40896DF6104D78A0413503 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */; };
 		0E3DC0AAE5784A1A9F9CF17F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15F25008B5AB47AEB7569E0A /* Roboto_medium.ttf */; };
 		103E2036A64C4B1F8194BE95 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C57A421AD43E4557ABFFD7FB /* MaterialIcons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -37,22 +40,20 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* TribiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TribiTests.m */; };
 		3692939A7A7342178808047B /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA5DCDF725104A89953E7ECA /* rubicon-icon-font.ttf */; };
+		3EC51FB79E074B6681E1C123 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */; };
 		523EE8F5C7474B5C8B5FE8D1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7A33F6751D642DF854BC34B /* Zocial.ttf */; };
 		56187139A3D84130BDAE255B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FB9608A0F7456E9A20A7F6 /* Ionicons.ttf */; };
 		59430636888741B3B8C0B553 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43696BE75B944808947485AC /* Roboto.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		78AFC9F92D5F4B788D1F1DC3 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423A1838DD634DD8A58DAA3B /* EvilIcons.ttf */; };
+		79595039194B4BA6AF62C71B /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C234F819BF33481AA1B97733 /* Lato-Heavy.ttf */; };
 		7F921A4AB62C40D68462E607 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 279D71C95AA748FF9245933F /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9A804A6BD3B54BC58782095D /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B8CB2224AE54A0C83508EE0 /* FontAwesome.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		AF197D562C3F497EB976D80A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 186BD075182E451B82A4455B /* Octicons.ttf */; };
 		B886A37DCAEF44159B0ABB3C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B162E31DBBD405BACCC9895 /* SimpleLineIcons.ttf */; };
-		0AB3C13D726E40938192ED06 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9401DC45F1514C4CA3DDECD0 /* Lato-Bold.ttf */; };
-		79595039194B4BA6AF62C71B /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C234F819BF33481AA1B97733 /* Lato-Heavy.ttf */; };
 		F2B6E1557DC44C959BCF3FD0 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */; };
-		3EC51FB79E074B6681E1C123 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */; };
-		0D40896DF6104D78A0413503 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,20 +363,20 @@
 		551A44721E2C4F72A7DD52BF /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		66FB9608A0F7456E9A20A7F6 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../app/assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
+		72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../app/assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B162E31DBBD405BACCC9895 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		7B8CB2224AE54A0C83508EE0 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9401DC45F1514C4CA3DDECD0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../app/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../app/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		AA5DCDF725104A89953E7ECA /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B7A33F6751D642DF854BC34B /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BC72C6AF380D44598B4A8CFB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		C234F819BF33481AA1B97733 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../app/assets/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
 		C57A421AD43E4557ABFFD7FB /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		9401DC45F1514C4CA3DDECD0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../app/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C234F819BF33481AA1B97733 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; name = "Lato-Heavy.ttf"; path = "../app/assets/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */ = {isa = PBXFileReference; name = "Lato-Italic.ttf"; path = "../app/assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */ = {isa = PBXFileReference; name = "Lato-Light.ttf"; path = "../app/assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../app/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -757,6 +758,10 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8TS38292CF;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1304,8 +1309,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 8TS38292CF;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-keychain/RNKeychainManager",
@@ -1317,7 +1325,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tribi.Tribi;
 				PRODUCT_NAME = Tribi;
+				PROVISIONING_PROFILE = "23cf5839-59bf-4b50-bc77-0970989aea50";
+				PROVISIONING_PROFILE_SPECIFIER = Tribi_Pro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1326,7 +1337,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TS38292CF;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-keychain/RNKeychainManager",
@@ -1338,7 +1352,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tribi.Tribi;
 				PRODUCT_NAME = Tribi;
+				PROVISIONING_PROFILE = "23cf5839-59bf-4b50-bc77-0970989aea50";
+				PROVISIONING_PROFILE_SPECIFIER = Tribi_Pro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

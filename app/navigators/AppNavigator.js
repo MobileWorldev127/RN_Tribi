@@ -16,12 +16,15 @@ import login from '../scenes/auth/login/index'
 import welcome from '../scenes/auth/welcome/index';
 import signup from '../scenes/auth/signup/index';
 import forgotpassword from '../scenes/auth/forgotpassword/index';
+import tabbarView from '../scenes/dashboard/tabbarView/index';
+
 
 export const AppNavigator = StackNavigator({
     login: { screen: login },
     welcome: {screen: welcome },
     signup: { screen: signup },
     forgotpassword: { screen: forgotpassword },
+    tabbarView: { screen: tabbarView },
 });
 
 const AppWithNavigationState = ({dispatch, nav}) => (

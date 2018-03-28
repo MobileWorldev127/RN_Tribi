@@ -20,7 +20,7 @@ export default{
         top: 0,
         left: 0,
     },
-     header: {
+    header: {
         backgroundColor: 'transparent',
         elevation: 0,
         borderBottomWidth: 0,

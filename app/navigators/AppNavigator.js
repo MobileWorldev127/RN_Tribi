@@ -17,6 +17,7 @@ import welcome from '../scenes/auth/welcome/index';
 import signup from '../scenes/auth/signup/index';
 import forgotpassword from '../scenes/auth/forgotpassword/index';
 import tabbarView from '../scenes/dashboard/tabbarView/index';
+import location from '../scenes/dashboard/location/index';
 
 
 export const AppNavigator = StackNavigator({
@@ -25,6 +26,7 @@ export const AppNavigator = StackNavigator({
     signup: { screen: signup },
     forgotpassword: { screen: forgotpassword },
     tabbarView: { screen: tabbarView },
+    location: { screen: location },
 });
 
 const AppWithNavigationState = ({dispatch, nav}) => (

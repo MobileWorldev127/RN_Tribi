@@ -50,7 +50,7 @@ class newGroup extends Component<{}>{
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
+                            <Thumbnail square source = {null} style = {styles.avatarImg}/>
                         </Button>
                     </Right>
                 </Header>
@@ -63,7 +63,7 @@ class newGroup extends Component<{}>{
                                 style = {styles.inputTxt}
                                 onChangeText = { text => this.setState({ username: text })}
                                 value = {this.state.username}
-                                placeholder = "Username"
+                                placeholder = "Group Name"
                                 placeholderTextColor = "#4a6187"
                                 autoCapitalize = 'none'
                                 autoCorrect = {false}

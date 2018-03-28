@@ -25,6 +25,12 @@ class newGroup extends Component<{}>{
     }
     
     componentWillMount() {
+        
+    }
+
+    onMakeRecomendation(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'location'}));
     }
 
     render(){
@@ -42,7 +48,7 @@ class newGroup extends Component<{}>{
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
+                            <Thumbnail square source = {null} style = {styles.avatarImg}/>
                         </Button>
                     </Right>
                 </Header>
@@ -52,7 +58,7 @@ class newGroup extends Component<{}>{
                         <Label style = {styles.countmemberTxt}>12 members</Label>
                         <Thumbnail square source = {images.ic_groupimage} style = {styles.groupImg}/>
                     </View>
-                    <Button transparent >
+                    <Button transparent onPress = {() => this.onMakeRecomendation()}>
                         <View style = {styles.makeView}>
                             <Label style = {styles.makeTxt}>MAKE RECOMENDATION</Label>
                         </View>

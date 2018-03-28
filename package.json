@@ -17,6 +17,7 @@
     "react-native": "0.54.2",
     "react-native-indicators": "^0.10.0",
     "react-native-iphone-x-helper": "^1.0.2",
+    "react-native-maps": "https://github.com/react-community/react-native-maps.git",
     "react-native-switch-pro": "^0.4.10",
     "react-navigation": "^1.0.0-beta.26",
     "react-navigation-redux-helpers": "^1.0.3",

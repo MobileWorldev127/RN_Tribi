@@ -82,5 +82,45 @@ export default{
         fontSize: 15,
         marginTop: -7,
     },
-
+    modalView: {
+       width: width,
+       height: height,
+       alignItems: 'center',
+       justifyContent: 'center',
+       backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    modalMainView: {
+        width: width - 50,
+        // marginLeft: 25,
+        padding: 20,
+        backgroundColor: 'white'
+    },
+    modaltitle: {
+        color: '#4a6187',
+        fontSize: 18,
+        fontFamily: "Lato-Bold",
+    },
+    modalcategory: {
+        color: '#d0d4dd',
+        fontSize: 12,
+        fontFamily: "Lato-Regular",
+        marginTop: 10
+    },
+    modaldescription: {
+        color: '#4a6187',
+        fontSize: 12,
+        fontFamily: "Lato-Regular",
+        marginTop: 20
+    },
+    modalImageView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop: 15
+    },
+    modalImage: {
+        width: (width - 110)/2,
+        height: 105,
+        resizeMode: 'contain',
+    }
 }

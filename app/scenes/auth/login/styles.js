@@ -64,7 +64,6 @@ export default{
     },
    signinTxt: {
        color: 'white',
-       fontSize: 15,
        fontFamily: "Lato-Regular",
    },
    signUpView: {

@@ -19,12 +19,20 @@ class recommendFeedback extends Component<{}>{
 
     render(){
         return(
-                <View style = {styles.container}>
-                    <Label style = {styles.modaltitle}>VR ARCADE</Label>
-                    <Label style = {styles.modalcategory}>Games</Label>
-                    <Label style = {styles.modaldescription}>Curabitur ullamcorper ultricies nisi. Nam eget dui. rhoncus. Maecenas tempus, tellus condimentum rhoncus, sem quam semper libero.</Label>
-                    
+            <View style = {styles.container}>
+                <Label style = {styles.modaltitle}>VR ARCADE</Label>
+                <Label style = {styles.modalcategory}>Games</Label>
+                <View style = {styles.eachFeedbackView}>
+                    <Thumbnail square source = {images.ic_star4} style = {styles.starValueImg}/>
+                    <Label style = {styles.modaldescription} >Curabitur ullamcorper ultricies nisi. Nam eget dui. rhoncus. Maecenas tempus, tellus condimentum rhoncus, sem quam semper libero.</Label>
+                    <Label style = {styles.modaldeFeedbackDate}>Den Potapov • May 20, 2017</Label>
                 </View>
+                <View style = {styles.eachFeedbackView}>
+                    <Thumbnail square source = {images.ic_star3} style = {styles.starValueImg}/>
+                    <Label style = {styles.modaldescription}>Curabitur ullamcorper ultricies nisi. Nam eget dui.</Label>
+                </View>
+                
+            </View>
         )
     }
 }

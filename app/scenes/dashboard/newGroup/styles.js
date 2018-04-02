@@ -6,11 +6,11 @@ export default{
     container: {
         flex: 1,
         backgroundColor: 'transparent',
-        ...ifIphoneX ({
-            paddingBottom: 60,
-        },{
-            paddingBottom: 50,
-        }),
+        // ...ifIphoneX ({
+        //     paddingBottom: 60,
+        // },{
+        //     paddingBottom: 50,
+        // }),
     },
     signInBackgroundImg: {
         position: 'absolute',
@@ -132,16 +132,67 @@ export default{
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        // ...ifIphoneX ({
-        //     marginTop: 150,
-        // },{
-        //     marginTop: 50,
-        // }),
+        ...ifIphoneX ({
+            marginBottom: 50,
+        },{
+            marginBottom: 30,
+        }),
     },
    createTxt: {
        color: 'white',
-       fontSize: 15,
        fontFamily: "Lato-Regular",
    },
+
+
+
+
+
+
+
+   tabView: {
+        width: width,
+        ...ifIphoneX ({
+            height: 60,
+            bottom: 10,
+        },{
+            height: 50,
+            bottom: 0,
+        }),        
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        left: 0,
+        backgroundColor: 'transparent'
+    },
+    tabBtn: {
+        width: width/4,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    tabIcon: {
+        width: 22,
+        height: 22,
+        resizeMode: 'contain',
+        marginBottom: 10
+    },
+    tabBackgroundImg: {
+        tintColor:'#33e098',
+        width: width/4,
+        height: 30,
+        resizeMode: 'stretch',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+    },
+    tabBackgroundImg1: {
+        width: 0,
+        height: 0,
+        resizeMode: 'stretch',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+    },
     
 }

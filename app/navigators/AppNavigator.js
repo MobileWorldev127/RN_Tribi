@@ -18,6 +18,10 @@ import signup from '../scenes/auth/signup/index';
 import forgotpassword from '../scenes/auth/forgotpassword/index';
 import tabbarView from '../scenes/dashboard/tabbarView/index';
 import location from '../scenes/dashboard/location/index';
+import newGroup from '../scenes/dashboard/newGroup/index';
+import showGroup from '../scenes/dashboard/showGroup/index';
+import voteGroup from '../scenes/dashboard/voteGroup/index';
+
 
 
 export const AppNavigator = StackNavigator({
@@ -27,6 +31,9 @@ export const AppNavigator = StackNavigator({
     forgotpassword: { screen: forgotpassword },
     tabbarView: { screen: tabbarView },
     location: { screen: location },
+    newGroup: { screen: newGroup },
+    showGroup: { screen: showGroup },
+    voteGroup: { screen: voteGroup},
 });
 
 const AppWithNavigationState = ({dispatch, nav}) => (

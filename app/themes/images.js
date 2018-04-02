@@ -32,10 +32,22 @@ const images = {
     //new group
     ic_friend_add: require('../assets/img/ic_friend_add.png'),
     ic_groupimage: require('../assets/img/ic_groupImage.png'),
+    ic_finger_down: require('../assets/img/ic_finger_down.png'),
+    ic_finger_up: require('../assets/img/ic_finger_up.png'),
 
     //location
     ic_location_pin: require('../assets/img/ic_location_pin.png'),
-    
+    ic_heart: require('../assets/img/ic_heart.png'),
+    ic_star0: require('../assets/img/ic_star0.png'),
+    ic_star1: require('../assets/img/ic_star1.png'),
+    ic_star2: require('../assets/img/ic_star2.png'),
+    ic_star3: require('../assets/img/ic_star3.png'),
+    ic_star4: require('../assets/img/ic_star4.png'),
+    ic_star5: require('../assets/img/ic_star5.png'),
+    ic_small_group_icon: require('../assets/img/ic_small_groupImage.png'),
+    ic_uncheckImage: require('../assets/img/ic_uncheck.png'),
+    ic_checkImage: require('../assets/img/ic_check.png'),
+     
     tab_home: require('../assets/img/tab_home.png'),
     tab_favorite: require('../assets/img/tab_heart.png'),
     tab_account: require('../assets/img/tab_profile.png'),

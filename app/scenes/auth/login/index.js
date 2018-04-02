@@ -88,7 +88,7 @@ class login extends Component<{}>{
             
         // })
         var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'tabbarView'}));
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 0}}));
     }
 
     onSignup(){

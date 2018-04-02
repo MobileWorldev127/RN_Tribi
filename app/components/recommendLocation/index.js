@@ -19,15 +19,15 @@ class recommendLocation extends Component<{}>{
 
     render(){
         return(
-                <View style = {styles.container}>
-                    <Label style = {styles.modaltitle}>VR ARCADE</Label>
-                    <Label style = {styles.modalcategory}>Games</Label>
-                    <Label style = {styles.modaldescription}>Curabitur ullamcorper ultricies nisi. Nam eget dui. rhoncus. Maecenas tempus, tellus condimentum rhoncus, sem quam semper libero.</Label>
-                    <View style = {styles.modalImageView}>
-                        <Thumbnail square source = {images.ic_favorite1} style = {styles.modalImage}/>
-                        <Thumbnail square source = {images.ic_favorite3} style = {styles.modalImage}/>
-                    </View>
+            <View style = {styles.container}>
+                <Label style = {styles.modaltitle}>VR ARCADE</Label>
+                <Label style = {styles.modalcategory}>Games</Label>
+                <Label style = {styles.modaldescription}>Curabitur ullamcorper ultricies nisi. Nam eget dui. rhoncus. Maecenas tempus, tellus condimentum rhoncus, sem quam semper libero.</Label>
+                <View style = {styles.modalImageView}>
+                    <Thumbnail square source = {images.ic_favorite1} style = {styles.modalImage}/>
+                    <Thumbnail square source = {images.ic_favorite3} style = {styles.modalImage}/>
                 </View>
+            </View>
         )
     }
 }

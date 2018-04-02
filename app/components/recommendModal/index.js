@@ -22,7 +22,9 @@ class recommendModal extends Component<{}>{
         super(props);
         this.state = {
             isLocation: true,
-            isFeedback: false
+            isFeedback: false,
+
+            groupmodalVisible: false,
         }
     }
 
@@ -38,17 +40,18 @@ class recommendModal extends Component<{}>{
             isLocation: false,
             isFeedback: true
         })
-    }
+    }  
 
     render(){
         return(
             <View style = {styles.modalView}>
+                <TouchableOpacity style = {styles.blankView} onPress = { this.props.onClickedBack}>
+                </TouchableOpacity>
                 <View style = {styles.modalMainView}>
+                    <Thumbnail square source = {images.ic_heart} style = {styles.heartImg}/>
                     {
-                        this.state.isLocation? 
-                        <RecommendLocation /> :
-                        <RecommendFeedback />
-                    }
+                        this.state.isLocation? <RecommendLocation /> : <RecommendFeedback />
+                    }                    
                     <View style = {styles.tabView}>
                         
                             <TouchableOpacity onPress = {() => this.onLocation()}>
@@ -63,10 +66,13 @@ class recommendModal extends Component<{}>{
                                     <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isFeedback? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
                                 </View>
                             </TouchableOpacity>
-                        
-
                     </View>
                 </View>
+
+                <Button style = {styles.recommendBtnView} onPress = { this.props.onClickedBack}>
+                    <Label style = {styles.recommedTxt}>RECOMMEND</Label>
+                </Button>
+                
             </View>
         )
     }

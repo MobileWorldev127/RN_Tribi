@@ -19,13 +19,20 @@ export default{
         color: '#d0d4dd',
         fontSize: 12,
         fontFamily: "Lato-Regular",
-        marginTop: 10
+        marginTop: 10,
+        marginBottom: 15,
     },
     modaldescription: {
         color: '#4a6187',
         fontSize: 12,
         fontFamily: "Lato-Regular",
-        marginTop: 20
+        marginTop: 15
+    },
+    modaldeFeedbackDate: {
+        color: '#4a6187',
+        fontSize: 12,
+        fontFamily: "Lato-Bold",
+        marginTop: 5,
     },
     modalImageView: {
         flexDirection: 'row',
@@ -37,5 +44,13 @@ export default{
         width: (width - 110)/2,
         height: 105,
         resizeMode: 'contain',
+    },
+    starValueImg: {
+        width: 61,
+        height: 12,
+        resizeMode: 'contain'
+    },
+    eachFeedbackView: {
+        marginTop: 25,
     }
 }

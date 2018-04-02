@@ -33,6 +33,26 @@ class newGroup extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'location'}));
     }
 
+    onHome() {
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 0}}));
+    }
+
+    onFavorite() {
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 1}}));
+    }
+
+    onAccount() {
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 2}}));
+    }
+
+    onLocation() {
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 3}}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -64,6 +84,38 @@ class newGroup extends Component<{}>{
                         </View>
                     </Button>
                 </View>
+
+
+
+                <View style = {styles.tabView}>
+                    <TouchableOpacity  onPress = {() => this.onHome()}>
+                        <View style = {styles.tabBtn}>
+                            <Thumbnail square source = {images.tab_home} style = {[styles.tabIcon, {tintColor: this.state.isHome? '#33e098': null}]}/>
+                            <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isHome? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.onFavorite()}>
+                        <View style = {styles.tabBtn}>
+                            <Thumbnail square source = {images.tab_favorite} style = {[styles.tabIcon, {tintColor: this.state.isFavorite? '#33e098': null}]}/>
+                            <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isFavorite? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
+                        </View>
+                        
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.onAccount()}>
+                        <View style = {styles.tabBtn}>
+                            <Thumbnail square source = {images.tab_account} style = {[styles.tabIcon, {tintColor: this.state.isAccount? '#33e098': null}]}/>
+                            <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isAccount? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.onLocation()}>
+                        <View style = {styles.tabBtn}>
+                            <Thumbnail square source = {images.tab_location} style = {[styles.tabIcon, {tintColor: this.state.isLocation? '#33e098': null}]}/>
+                            <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isLocation? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+
             </View>
         );
 

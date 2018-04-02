@@ -17,12 +17,14 @@ import Accounts from '../accounts/index';
 import Favorite from '../favorite/index';
 import NewGroup from '../newGroup/index';
 import showGroup from '../showGroup/index';
+import voteGroup from '../voteGroup/index';
 
 
 const HomeNavigator = StackNavigator({
         Home: { screen: Home},
         NewGroup: { screen: NewGroup },
         showGroup: { screen: showGroup },
+        voteGroup: { screen: voteGroup },
     },
     {
         initialRouteName: 'Home',
@@ -61,7 +63,21 @@ class tabbarView extends Component<{}>{
             isFavorite: false,
             isAccount: false,
             isLocation: false,
-            isgroupCreate: false
+        }
+    }
+
+    componentWillMount() {
+        if(this.props.navigation.state.params.index == 0){
+            this.onHome();
+        }
+        else if(this.props.navigation.state.params.index == 1){
+            this.onFavorite();
+        }
+        else if(this.props.navigation.state.params.index == 2){
+            this.onAccount();
+        }
+        else {
+            this.onLocation()
         }
     }
 
@@ -71,7 +87,6 @@ class tabbarView extends Component<{}>{
             isFavorite: false,
             isAccount: false,
             isLocation: false,
-            isgroupCreate: false,
         })
     }
 
@@ -81,7 +96,6 @@ class tabbarView extends Component<{}>{
             isFavorite: true,
             isAccount: false,
             isLocation: false,
-            isgroupCreate: false,
         })
     }
 
@@ -91,7 +105,6 @@ class tabbarView extends Component<{}>{
             isFavorite: false,
             isAccount: true,
             isLocation: false,
-            isgroupCreate: false,
         })
     }
 
@@ -101,7 +114,6 @@ class tabbarView extends Component<{}>{
             isFavorite: false,
             isAccount: false,
             isLocation: true,
-            isgroupCreate: false,
         })
     }
 
@@ -111,7 +123,6 @@ class tabbarView extends Component<{}>{
             isFavorite: false,
             isAccount: false,
             isLocation: false,
-            isgroupCreate: true,
         })
     }
     
@@ -120,28 +131,21 @@ class tabbarView extends Component<{}>{
         if(this.state.isHome == true){
             return(
                 <View style = {styles.mainView}>
-                    <HomeNavigator screenProps = {{ rootNavigation: this.props.navigation }}/>
+                    <Home />
                 </View>
             )
         }
         else if(this.state.isFavorite){
             return(
                 <View style = {styles.mainView}>
-                    <FavoriteNavigator screenProps = {{ rootNavigation: this.props.navigation }}/>
+                    <Favorite />
                 </View>
             )
         }
         else if(this.state.isAccount){
             return(
                 <View style = {styles.mainView}>
-                    <AccountNavigator screenProps = {{ rootNavigation: this.props.navigation }}/>
-                </View>
-            )
-        }
-        else if(this.state.isgroupCreate){
-            return(
-                <View style = {styles.mainView}>
-                    <NewGroup/>
+                    <Accounts />
                 </View>
             )
         }
@@ -170,11 +174,6 @@ class tabbarView extends Component<{}>{
                 <Label style = {styles.screentitle}>SEARCH</Label>
             )
         }
-        else if(this.state.isgroupCreate){
-            return(
-                <Label style = {styles.screentitle}>NEW GROUP</Label>
-            )
-        }
     }
 
     render() {
@@ -185,22 +184,6 @@ class tabbarView extends Component<{}>{
                     barStyle="light-content"
                 />*/}
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
-                {/*<Header style = {styles.header}>
-                    <Left>
-                        <Button transparent>
-                            <Thumbnail square source = {images.ic_men} style = {styles.menuImg}/>
-                        </Button>
-                    </Left>
-                    <Body>
-                        { this.showTitle() }
-                    </Body>
-                    <Right>
-                        <Button transparent>
-                            <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
-                        </Button>
-                    </Right>
-                </Header>*/}
-                
                 { this.showMainView() }
                 
                 <View style = {styles.tabView}>

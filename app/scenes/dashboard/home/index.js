@@ -49,7 +49,9 @@ class home extends Component<{}>{
     }
 
     onCreateGroup(){
-        this.props.navigation.navigate('NewGroup')
+        // this.props.navigation.navigate('NewGroup')
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'newGroup'}));
     }
 
     render(){

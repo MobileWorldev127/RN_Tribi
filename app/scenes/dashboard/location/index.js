@@ -13,6 +13,7 @@ import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 import MapView,  { Marker } from 'react-native-maps';
 import RecommendModal from '../../../components/recommendModal'
+import RecommendGroup from '../../../components/recommendGroup'
 
 class location extends Component<{}>{
     static navigationOptions = {
@@ -23,6 +24,7 @@ class location extends Component<{}>{
         super(props);
         this.state = {
             modalVisible: false,
+            groupmodalVisible: false,
             searchWord: '',
             selected_marker: [],
             markers: [
@@ -63,6 +65,8 @@ class location extends Component<{}>{
         }
     }
 
+    
+
     onClickMarker(marker){
         this.setState({
             modalVisible: true,
@@ -70,9 +74,15 @@ class location extends Component<{}>{
         })        
     }
 
+    onClickedRecommend() {
+        this.setState({
+            groupmodalVisible: false
+        })
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'voteGroup'}));
+    }
+
     render(){
-        const { region } = this.props;
-        console.log(region);
         return(
             <View style ={styles.container}>
                 <MapView
@@ -84,8 +94,9 @@ class location extends Component<{}>{
                         longitudeDelta: 0.0421,
                     }}
                 >
-                    {this.state.markers.map(marker => (
+                    {this.state.markers.map((marker, index) => (
                         <Marker
+                            key = {index}
                             onPress={() => this.onClickMarker(marker) }
                             coordinate={marker.latlng}
                             image={images.ic_location_pin}
@@ -132,8 +143,19 @@ class location extends Component<{}>{
                         alert('Modal has been closed')
                     }}>
 
-                    <RecommendModal/>
+                    <RecommendModal onClickedBack = {() => this.setState({ modalVisible: false, groupmodalVisible: true })}/>
+                </Modal>
 
+                <Modal
+                    animationType = 'slide'
+                    transparent = {false}
+                    visible = {this.state.groupmodalVisible}
+                    transparent = {true}
+                    onRequestClose = {() => {
+                        alert('Modal has been closed')
+                    }}>
+
+                    <RecommendGroup onClickedRecommend = {() => this.onClickedRecommend()}/>
                 </Modal>
             </View>
         )

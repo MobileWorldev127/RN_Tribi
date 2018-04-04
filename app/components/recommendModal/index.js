@@ -70,7 +70,7 @@ class recommendModal extends Component<{}>{
                     </View>
                 </View>
 
-                <Button style = {styles.recommendBtnView} onPress = { this.props.onClickedBack}>
+                <Button style = {styles.recommendBtnView} onPress = { this.props.onRecommend}>
                     <Label style = {styles.recommedTxt}>RECOMMEND</Label>
                 </Button>
                 

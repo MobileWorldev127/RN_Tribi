@@ -12,7 +12,7 @@ import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 
-class newGroup extends Component<{}>{
+class friendProfile extends Component<{}>{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -29,10 +29,6 @@ class newGroup extends Component<{}>{
         
     }
 
-    onMakeRecomendation(){
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: false}}));
-    }
 
     onHome() {
         var { dispatch } = this.props;
@@ -65,7 +61,7 @@ class newGroup extends Component<{}>{
                         </Button>
                     </Left>
                     <Body>
-                        <Label style = {styles.screentitle}>GROUP</Label>
+                        <Label style = {styles.screentitle}>PROFILE</Label>
                     </Body>
                     <Right>
                         <Button transparent>
@@ -74,19 +70,20 @@ class newGroup extends Component<{}>{
                     </Right>
                 </Header>
                 <View style = {styles.mainContainer}>
-                    <View style = {styles.rowView}>
-                        <Label style = {styles.groupTitle}>DESIGN COMMUNITY</Label>
-                        <Label style = {styles.countmemberTxt}>12 members</Label>
-                        <Thumbnail square source = {images.ic_groupimage} style = {styles.groupImg}/>
+                    <View style = {styles.aboutView}>
+                        <Thumbnail square source = {images.ic_avatar2} style = {styles.userImg}/>
+                        <Label style = {styles.userName}>KATE LAGUTA</Label>
+                        <Label style = {styles.userCity}>New York</Label>
+                        <Label style = {styles.userAbout}>Curabitur ullamcorper ultricies nisi.{'\n'}Nam eget dui.rhoncus</Label>
                     </View>
-                    <Button transparent onPress = {() => this.onMakeRecomendation()}>
-                        <View style = {styles.makeView}>
-                            <Label style = {styles.makeTxt}>MAKE RECOMENDATION</Label>
+                    <Button transparent style = {{marginBottom: 25}}>
+                        <View style = {styles.addView}>
+                            <Label style = {styles.addTxt}>ADD FRIEND</Label>
                         </View>
                     </Button>
                 </View>
 
-
+                
 
                 <View style = {styles.tabView}>
                     <TouchableOpacity  onPress = {() => this.onHome()}>
@@ -116,6 +113,7 @@ class newGroup extends Component<{}>{
                     </TouchableOpacity>
                 </View>
 
+                
 
             </View>
         );
@@ -123,4 +121,4 @@ class newGroup extends Component<{}>{
     }
 }
 
-export default connect()(newGroup);
+export default connect()(friendProfile);

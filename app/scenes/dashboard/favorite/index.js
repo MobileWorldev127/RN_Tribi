@@ -32,23 +32,30 @@ class favorite extends Component<{}>{
     componentWillMount() {
     }
 
+    onFavorite(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: true}}));
+    }
+
     renderRow(item, index){
         return(
-            <View style = {styles.rowView} key = {index}>
-                <Thumbnail square source = {item.image} style = {styles.locationImg}/>
-                <View style = {{flex: 1}}>
-                    <View style = {styles.subtitleView}>
-                        <Label style = {styles.nametxt}>{item.title}</Label>
-                        <View style = {{flexDirection: 'row'}}>
-                            <Thumbnail square source = {images.ic_starRating} style = {styles.starImg}/>
-                            <Label style = {styles.ratingtxt}>{item.rating}</Label>
-                        </View> 
+            <TouchableOpacity onPress = {() => this.onFavorite()} key = {index}>
+                <View style = {styles.rowView} >
+                    <Thumbnail square source = {item.image} style = {styles.locationImg}/>
+                    <View style = {{flex: 1}}>
+                        <View style = {styles.subtitleView}>
+                            <Label style = {styles.nametxt}>{item.title}</Label>
+                            <View style = {{flexDirection: 'row'}}>
+                                <Thumbnail square source = {images.ic_starRating} style = {styles.starImg}/>
+                                <Label style = {styles.ratingtxt}>{item.rating}</Label>
+                            </View> 
+                        </View>
+                        
+                        <Label style = {styles.citytxt}>{item.category}</Label>
+                        <Label style = {styles.descriptiontxt}>{item.description}</Label>
                     </View>
-                    
-                    <Label style = {styles.citytxt}>{item.category}</Label>
-                    <Label style = {styles.descriptiontxt}>{item.description}</Label>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -63,7 +70,7 @@ class favorite extends Component<{}>{
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={ () => { this.props.navigation.navigate('DrawerOpen') }}>
                             <Thumbnail square source = {images.ic_men} style = {styles.menuImg}/>
                         </Button>
                     </Left>

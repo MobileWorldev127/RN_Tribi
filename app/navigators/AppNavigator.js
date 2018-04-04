@@ -26,10 +26,12 @@ import userProfile from '../scenes/dashboard/userProfile/index';
 import editProfile from '../scenes/dashboard/editProfile/index';
 import home from '../scenes/dashboard/home/index';
 import Sidebar from '../components/sideBar/index';
+import friendProfile from '../scenes/dashboard/friendProfile/index';
 
 const Drawer = DrawerNavigator(
     {
-        login: { screen: login },
+        tabbarView: { screen: tabbarView },
+        // login: { screen: login },
     },
     {
         initialRouteName: '',
@@ -39,19 +41,23 @@ const Drawer = DrawerNavigator(
 );
 
 export const AppNavigator = StackNavigator({
-    login: { screen: login },
-    welcome: {screen: welcome },
-    signup: { screen: signup },
-    forgotpassword: { screen: forgotpassword },
-    Drawer: { screen: Drawer },
-    tabbarView: { screen: tabbarView },
-    location: { screen: location },
-    newGroup: { screen: newGroup },
-    showGroup: { screen: showGroup },
-    voteGroup: { screen: voteGroup},
-    userProfile: { screen: userProfile },
-    editProfile: { screen: editProfile },
-});
+        login: { screen: login },
+        welcome: {screen: welcome },
+        signup: { screen: signup },
+        forgotpassword: { screen: forgotpassword },
+        Drawer: { screen: Drawer },
+        // tabbarView: { screen: tabbarView },
+        location: { screen: location },
+        newGroup: { screen: newGroup },
+        showGroup: { screen: showGroup },
+        voteGroup: { screen: voteGroup},
+        userProfile: { screen: userProfile },
+        editProfile: { screen: editProfile },
+        friendProfile: { screen: friendProfile },
+    },{
+        headerMode: 'none',
+    }
+);
 
 const AppWithNavigationState = ({dispatch, nav}) => (
     <AppNavigator navigation={addNavigationHelpers({dispatch, state: nav, addListener})}/>

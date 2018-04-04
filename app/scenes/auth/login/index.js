@@ -36,11 +36,6 @@ class login extends Component<{}>{
         dispatch(NavigationActions.back()) 
     } 
 
-    onForgotPassword(){
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'lostpassword'}))
-    }
-
     onLogin(){
         Keyboard.dismiss();
         // if (!this.state.username.length) {
@@ -98,8 +93,9 @@ class login extends Component<{}>{
     }
 
     onForgotPassword() {
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'forgotpassword'}));
+        // var { dispatch } = this.props;
+        // dispatch(NavigationActions.navigate({routeName: 'forgotpassword'}));
+        this.props.navigation.navigate('DrawerOpen')
     }
 
     render(){

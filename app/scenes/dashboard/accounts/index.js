@@ -10,6 +10,7 @@ import {
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
+import friendProfile from '../friendProfile/index';
 
 var searchList = [
     {name: 'Joshua Francis', city: 'Toronto', avatar: images.ic_avatar1},
@@ -36,16 +37,23 @@ class accounts extends Component<{}>{
     componentWillMount() {
     }
 
+    onClickedFriendProfile(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'friendProfile'}));
+    }
+
     renderRow(item, index){
         return(
-            <View style = {styles.rowView} key = {index}>
-                <Thumbnail square source = {item.avatar} style = {styles.userImg}/>
-                <View>
-                    <Label style = {styles.nametxt}>{item.name}</Label>
-                    <Label style = {styles.citytxt}>{item.city}</Label>
+            <TouchableOpacity onPress = {() => this.onClickedFriendProfile()} key = {index}>
+                <View style = {styles.rowView} >
+                    <Thumbnail square source = {item.avatar} style = {styles.userImg}/>
+                    <View>
+                        <Label style = {styles.nametxt}>{item.name}</Label>
+                        <Label style = {styles.citytxt}>{item.city}</Label>
+                    </View>
+                    <View style = {styles.underLine}/>
                 </View>
-                <View style = {styles.underLine}/>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -54,13 +62,15 @@ class accounts extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
     }
 
+    
+
     render(){
         return (
             <View style={styles.container}>
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={ () => { this.props.navigation.navigate('DrawerOpen') }}>
                             <Thumbnail square source = {images.ic_men} style = {styles.menuImg}/>
                         </Button>
                     </Left>

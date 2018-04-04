@@ -66,8 +66,15 @@ class location extends Component<{}>{
         }
     }
 
-    
+    componentWillMount() {
+        if(this.props.navigation.state.params.isModal){
+            this.setState({
+                modalVisible: true
+            })  
+        }
+    }
 
+    
     onClickMarker(marker){
         this.setState({
             modalVisible: true,
@@ -144,7 +151,7 @@ class location extends Component<{}>{
                         alert('Modal has been closed')
                     }}>
 
-                    <RecommendModal onClickedBack = {() => this.setState({ modalVisible: false, groupmodalVisible: true })}/>
+                    <RecommendModal onClickedBack = {() => this.setState({ modalVisible: false })} onRecommend = {() => this.setState({ modalVisible: false, groupmodalVisible: true })}/>
                 </Modal>
 
                 <Modal

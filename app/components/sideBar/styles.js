@@ -1,4 +1,5 @@
 import { Dimensions } from 'react-native';
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 const { width, height } = Dimensions.get('window')
 
 export default {
@@ -11,7 +12,13 @@ export default {
         height: 120,
         alignItems: 'center',
         padding: 20,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        
+        ...ifIphoneX ({
+            marginTop: 60,
+        },{
+            marginTop: 30,
+        }),
     },
     avartarImg: {
         width: 70,
@@ -36,7 +43,9 @@ export default {
     },
     menuView:{
         flex: 1, 
-        backgroundColor: 'transparent', 
+        backgroundColor: 'transparent',
+        paddingTop: 40,
+        paddingLeft: 40
     },
     logTxt: {
         fontSize: 17,

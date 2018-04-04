@@ -16,8 +16,7 @@ import Home from '../home/index';
 import Accounts from '../accounts/index';
 import Favorite from '../favorite/index';
 import NewGroup from '../newGroup/index';
-import showGroup from '../showGroup/index';
-import voteGroup from '../voteGroup/index';
+import Location from '../location/index';
 
 // create a component
 class tabbarView extends Component<{}>{
@@ -108,23 +107,26 @@ class tabbarView extends Component<{}>{
         else if(this.state.isFavorite){
             return(
                 <View style = {styles.mainView}>
-                    <Favorite />
+                    <Favorite navigation = {this.props.navigation}/>
                 </View>
             )
         }
         else if(this.state.isAccount){
             return(
                 <View style = {styles.mainView}>
-                    <Accounts />
+                    <Accounts navigation = {this.props.navigation}/>
                 </View>
             )
         }
         else if(this.state.isLocation){
-            return(
-                <View style = {styles.mainView}>
-                    <Home/>
-                </View>
-            )
+            var { dispatch } = this.props;
+            dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: false}}));
+            this.setState({
+                isHome: true,
+                isFavorite: false,
+                isAccount: false,
+                isLocation: false,
+            })
         }
     }
 
@@ -178,8 +180,8 @@ class tabbarView extends Component<{}>{
                     </TouchableOpacity>
                     <TouchableOpacity onPress = {() => this.onLocation()}>
                         <View style = {styles.tabBtn}>
-                            <Thumbnail square source = {images.tab_location} style = {[styles.tabIcon, {tintColor: this.state.isLocation? '#33e098': null}]}/>
-                            <Thumbnail square source = {images.tab_backgroundImage} style = {this.state.isLocation? styles.tabBackgroundImg: styles.tabBackgroundImg1}/>
+                            <Thumbnail square source = {images.tab_location} style = {styles.tabIcon}/>
+                            <Thumbnail square source = {images.tab_backgroundImage} style = { styles.tabBackgroundImg1}/>
                         </View>
                     </TouchableOpacity>
                 </View>

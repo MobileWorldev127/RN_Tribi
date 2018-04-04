@@ -24,7 +24,8 @@ var voteList = [
 
 class voteGroup extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){
@@ -85,6 +86,11 @@ class voteGroup extends Component<{}>{
         })
     }
 
+    onClickedProfile(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
+    }
+
     renderRow(item, index){
         return(
             <View style = {styles.rowView} key = {index}>
@@ -137,7 +143,7 @@ class voteGroup extends Component<{}>{
                         <Label style = {styles.screentitle}>GROUP</Label>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress = {() => this.onClickedProfile()}>
                             <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
                         </Button>
                     </Right>

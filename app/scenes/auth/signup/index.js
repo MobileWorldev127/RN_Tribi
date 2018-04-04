@@ -14,7 +14,8 @@ import images from '../../../themes/images'
 
 class signup extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){

@@ -15,7 +15,8 @@ import RecommendFeedback from '../recommendFeedback'
 
 class recommendModal extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props) {

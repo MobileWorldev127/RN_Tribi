@@ -14,7 +14,8 @@ import images from '../../themes/images'
 
 class recommendFeedback extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     render(){

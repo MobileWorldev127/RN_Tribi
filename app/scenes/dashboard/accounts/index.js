@@ -21,7 +21,8 @@ var searchList = [
 
 class accounts extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){
@@ -48,6 +49,11 @@ class accounts extends Component<{}>{
         )
     }
 
+    onClickedProfile(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -62,7 +68,7 @@ class accounts extends Component<{}>{
                         <Label style = {styles.screentitle}>SEARCH</Label>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress = {() => this.onClickedProfile()}>
                             <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
                         </Button>
                     </Right>

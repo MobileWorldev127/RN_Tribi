@@ -15,7 +15,8 @@ import tabbarView from '../../dashboard/tabbarView/index';
 
 class welcome extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){

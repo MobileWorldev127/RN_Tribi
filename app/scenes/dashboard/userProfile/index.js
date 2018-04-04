@@ -12,7 +12,7 @@ import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 
-class newGroup extends Component<{}>{
+class userProfile extends Component<{}>{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -29,10 +29,6 @@ class newGroup extends Component<{}>{
         
     }
 
-    onMakeRecomendation(){
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'location'}));
-    }
 
     onHome() {
         var { dispatch } = this.props;
@@ -54,6 +50,11 @@ class newGroup extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 3}}));
     }
 
+    onClickedProfileEdit(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'editProfile'}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -65,7 +66,7 @@ class newGroup extends Component<{}>{
                         </Button>
                     </Left>
                     <Body>
-                        <Label style = {styles.screentitle}>GROUP</Label>
+                        <Label style = {styles.screentitle}>MY PROFILE</Label>
                     </Body>
                     <Right>
                         <Button transparent>
@@ -74,16 +75,17 @@ class newGroup extends Component<{}>{
                     </Right>
                 </Header>
                 <View style = {styles.mainContainer}>
-                    <View style = {styles.rowView}>
-                        <Label style = {styles.groupTitle}>DESIGN COMMUNITY</Label>
-                        <Label style = {styles.countmemberTxt}>12 members</Label>
-                        <Thumbnail square source = {images.ic_groupimage} style = {styles.groupImg}/>
+                    <View style = {styles.aboutView}>
+                        <Thumbnail square source = {images.ic_avatar} style = {styles.userImg}/>
+                        <Label style = {styles.userName}>DEN POTAPOV</Label>
+                        <Label style = {styles.userCity}>Toronto</Label>
+                        <Label style = {styles.userAbout}>Curabitur ullamcorper ultricies nisi.{'\n'}Nam eget dui.rhoncus</Label>
+                        
                     </View>
-                    <Button transparent onPress = {() => this.onMakeRecomendation()}>
-                        <View style = {styles.makeView}>
-                            <Label style = {styles.makeTxt}>MAKE RECOMENDATION</Label>
-                        </View>
-                    </Button>
+                    <TouchableOpacity onPress = {() => this.onClickedProfileEdit()}>
+                        <Thumbnail square source = {images.ic_userprofile_edit} style = {styles.editImg}/>
+                    </TouchableOpacity>
+                    
                 </View>
 
 
@@ -123,4 +125,4 @@ class newGroup extends Component<{}>{
     }
 }
 
-export default connect()(newGroup);
+export default connect()(userProfile);

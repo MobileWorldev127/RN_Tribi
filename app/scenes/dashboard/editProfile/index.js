@@ -12,7 +12,7 @@ import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 
-class newGroup extends Component<{}>{
+class editProfile extends Component<{}>{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -21,7 +21,8 @@ class newGroup extends Component<{}>{
     constructor(props){
         super(props);
         this.state = {
-
+            username: 'Den Potapov',
+            city: 'Toronto'
         }
     }
     
@@ -29,10 +30,6 @@ class newGroup extends Component<{}>{
         
     }
 
-    onMakeRecomendation(){
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'location'}));
-    }
 
     onHome() {
         var { dispatch } = this.props;
@@ -54,6 +51,10 @@ class newGroup extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'tabbarView', params: {index: 3}}));
     }
 
+    onSaveChanges(){
+        this.props.navigation.goBack()
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -65,23 +66,49 @@ class newGroup extends Component<{}>{
                         </Button>
                     </Left>
                     <Body>
-                        <Label style = {styles.screentitle}>GROUP</Label>
+                        <Label style = {styles.screentitle}>EDIT PROFILE</Label>
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Thumbnail square source = {null} style = {styles.avatarImg}/>
+                            <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
                         </Button>
                     </Right>
                 </Header>
                 <View style = {styles.mainContainer}>
-                    <View style = {styles.rowView}>
-                        <Label style = {styles.groupTitle}>DESIGN COMMUNITY</Label>
-                        <Label style = {styles.countmemberTxt}>12 members</Label>
-                        <Thumbnail square source = {images.ic_groupimage} style = {styles.groupImg}/>
+                    <View>
+                        <Label style = {styles.usernametxt}>USERNAME</Label>
+                        <TextInput
+                            style = {styles.inputTxt}
+                            onChangeText = { text => this.setState({ username: text })}
+                            value = {this.state.username}
+                            placeholder = "Username"
+                            placeholderTextColor = "#4a6187"
+                            autoCapitalize = 'none'
+                            autoCorrect = {false}
+                        />
+                        <View style = {styles.underline}/>
                     </View>
-                    <Button transparent onPress = {() => this.onMakeRecomendation()}>
-                        <View style = {styles.makeView}>
-                            <Label style = {styles.makeTxt}>MAKE RECOMENDATION</Label>
+                    <View style = {{marginTop: 30}}>
+                        <Label style = {styles.usernametxt}>LOCATION</Label>
+                        <TextInput
+                            style = {styles.inputTxt}
+                            onChangeText = { text => this.setState({ city: text })}
+                            value = {this.state.city}
+                            placeholder = "Username"
+                            placeholderTextColor = "#4a6187"
+                            autoCapitalize = 'none'
+                            autoCorrect = {false}
+                        />
+                        <View style = {styles.underline}/>
+                    </View>
+                    <View style = {{marginTop: 30}}>
+                        <Label style = {styles.usernametxt}>DESCRIPTION</Label>
+                        <Label style = {styles.descriptiontxt}>Curabitur ullamcorper ultricies nisi. Nam eget dui. rhoncus</Label>
+                        <View style = {styles.underline}/>
+                    </View>
+                    <Button transparent style = {{marginTop: 60}} onPress = {() => this.onSaveChanges()}>
+                        <View style = {styles.saveView}>
+                            <Label style = {styles.saveTxt}>SAVE CHANGES</Label>
                         </View>
                     </Button>
                 </View>
@@ -123,4 +150,4 @@ class newGroup extends Component<{}>{
     }
 }
 
-export default connect()(newGroup);
+export default connect()(editProfile);

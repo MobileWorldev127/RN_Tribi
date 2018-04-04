@@ -39,15 +39,14 @@ export default{
         marginRight: 10
     },
     screentitle: {
+        color: '#4a6187',
+        fontFamily: "Lato-Bold",
+        marginLeft: 5,
         ...ifIphoneX ({
-            color: '#4a6187',
             fontSize: 18,
-            fontFamily: "Lato-Bold",
         },{
-            color: '#4a6187',
             fontSize: 16,
-            fontFamily: "Lato-Bold",
-        }), 
+        }),  
     },
     mainContainer: {
         flex: 1,
@@ -76,7 +75,7 @@ export default{
         fontFamily: "Lato-Regular",
         paddingTop: 0,
         paddingBottom: 0,
-        fontSize: 14,
+        fontSize: 15,
         marginTop: 10,
         marginLeft: 10,
     },

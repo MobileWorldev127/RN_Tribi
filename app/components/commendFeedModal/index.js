@@ -18,7 +18,8 @@ var commendList = [
 
 class commendFeedModal extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props) {

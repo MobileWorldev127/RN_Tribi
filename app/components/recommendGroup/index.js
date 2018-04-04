@@ -21,7 +21,8 @@ var groupList = [
 
 class recommendGroup extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props) {

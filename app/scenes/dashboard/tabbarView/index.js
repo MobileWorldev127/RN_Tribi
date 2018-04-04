@@ -19,41 +19,11 @@ import NewGroup from '../newGroup/index';
 import showGroup from '../showGroup/index';
 import voteGroup from '../voteGroup/index';
 
-
-const HomeNavigator = StackNavigator({
-        Home: { screen: Home},
-        NewGroup: { screen: NewGroup },
-        showGroup: { screen: showGroup },
-        voteGroup: { screen: voteGroup },
-    },
-    {
-        initialRouteName: 'Home',
-        headerMode: 'none',
-    }
-)
-
-const FavoriteNavigator = StackNavigator({
-        Favorite: { screen: Favorite},
-    },
-    {
-        initialRouteName: 'Favorite',
-        headerMode: 'none',
-    }
-)
-
-const AccountNavigator = StackNavigator({
-        Accounts: { screen: Accounts},
-    },
-    {
-        initialRouteName: 'Accounts',
-        headerMode: 'none',
-    }
-)
-
 // create a component
 class tabbarView extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props) {
@@ -131,7 +101,7 @@ class tabbarView extends Component<{}>{
         if(this.state.isHome == true){
             return(
                 <View style = {styles.mainView}>
-                    <Home />
+                    <Home navigation = {this.props.navigation}/>
                 </View>
             )
         }

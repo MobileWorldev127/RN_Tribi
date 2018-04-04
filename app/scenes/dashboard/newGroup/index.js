@@ -15,7 +15,8 @@ import Switch from 'react-native-switch-pro'
 
 class newGroup extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){

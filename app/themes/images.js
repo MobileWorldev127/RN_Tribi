@@ -47,6 +47,9 @@ const images = {
     ic_small_group_icon: require('../assets/img/ic_small_groupImage.png'),
     ic_uncheckImage: require('../assets/img/ic_uncheck.png'),
     ic_checkImage: require('../assets/img/ic_check.png'),
+
+    //profile
+    ic_userprofile_edit: require('../assets/img/ic_edit.png'),
      
     tab_home: require('../assets/img/tab_home.png'),
     tab_favorite: require('../assets/img/tab_heart.png'),

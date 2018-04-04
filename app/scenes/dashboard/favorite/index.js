@@ -19,7 +19,8 @@ var favoriteList = [
 
 class favorite extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){
@@ -51,6 +52,11 @@ class favorite extends Component<{}>{
         )
     }
 
+    onClickedProfile(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -65,7 +71,7 @@ class favorite extends Component<{}>{
                         <Label style = {styles.screentitle}>FAVOURITES</Label>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress = {() => this.onClickedProfile()}>
                             <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
                         </Button>
                     </Right>

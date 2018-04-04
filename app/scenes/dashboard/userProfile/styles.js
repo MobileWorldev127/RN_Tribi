@@ -24,7 +24,7 @@ export default{
         padding: 25,
         paddingBottom: 50,
         flex: 1,
-        justifyContent: 'space-between',
+        alignItems: 'center',
         ...ifIphoneX ({
             marginBottom: 50,
         },{
@@ -51,16 +51,17 @@ export default{
         marginRight: 10
     },
     screentitle: {
-        color: '#4a6187',
-        fontFamily: "Lato-Bold",
-        marginLeft: 5,
         ...ifIphoneX ({
+            color: '#4a6187',
             fontSize: 18,
+            fontFamily: "Lato-Bold",
         },{
+            color: '#4a6187',
             fontSize: 16,
+            fontFamily: "Lato-Bold",
         }), 
     },
-    rowView: {
+    aboutView: {
         backgroundColor: 'white',
         width: width - 50,
         borderRadius: 5,
@@ -70,38 +71,42 @@ export default{
         shadowOffset: {width: 5, height: 5},
         shadowOpacity: 0.4,
         shadowRadius: 5,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 40
     },
-    groupTitle: {
+    userName: {
         fontSize: 15,
         color: '#4a6187',
         fontFamily: "Lato-Bold",
+        marginTop: 20
     },
-    countmemberTxt: {
+    userCity: {
         fontSize: 12,
         color: 'gray',
         fontFamily: "Lato-Regular",
         marginTop: 5,
     },
-    groupImg: {
-        width: 152,
-        height: 34,
+    userAbout: {
+        fontSize: 13,
+        color: '#4a6187',
+        fontFamily: "Lato-Regular",
+        marginTop: 25,
+        textAlign: 'center',
+        marginBottom: 30
+    },
+    userImg: {
+        width: 100,
+        height: 100,
+        resizeMode: 'cover',
+        borderRadius: 50,
+        marginTop: -70
+    },
+    editImg: {
+        width: 63,
+        height: 63,
         resizeMode: 'contain',
-        marginTop: 20
+        marginTop: -30
     },
-    makeView: {
-        width: width - 50,
-        height: 55,
-        backgroundColor: '#33e098',
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-   makeTxt: {
-       color: 'white',
-       fontFamily: "Lato-Regular",
-   },
-
 
    tabView: {
         width: width,

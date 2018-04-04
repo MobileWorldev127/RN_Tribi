@@ -21,10 +21,9 @@ export default{
     },
     mainContainer: {
         width: width,
-        padding: 25,
+        padding: 30,
         paddingBottom: 50,
         flex: 1,
-        justifyContent: 'space-between',
         ...ifIphoneX ({
             marginBottom: 50,
         },{
@@ -51,45 +50,45 @@ export default{
         marginRight: 10
     },
     screentitle: {
-        color: '#4a6187',
-        fontFamily: "Lato-Bold",
-        marginLeft: 5,
         ...ifIphoneX ({
+            color: '#4a6187',
             fontSize: 18,
+            fontFamily: "Lato-Bold",
         },{
+            color: '#4a6187',
             fontSize: 16,
+            fontFamily: "Lato-Bold",
         }), 
     },
-    rowView: {
-        backgroundColor: 'white',
-        width: width - 50,
-        borderRadius: 5,
-        padding: 20,
-        paddingLeft: 12,
-        shadowColor: '#4a6187',
-        shadowOffset: {width: 5, height: 5},
-        shadowOpacity: 0.4,
-        shadowRadius: 5,
-        alignItems: 'center'
-    },
-    groupTitle: {
+    usernametxt: {
+        color: '#33e098',
         fontSize: 15,
-        color: '#4a6187',
-        fontFamily: "Lato-Bold",
-    },
-    countmemberTxt: {
-        fontSize: 12,
-        color: 'gray',
+        marginLeft: 10,
         fontFamily: "Lato-Regular",
-        marginTop: 5,
     },
-    groupImg: {
-        width: 152,
-        height: 34,
-        resizeMode: 'contain',
-        marginTop: 20
+    inputTxt: {
+        // flex: 1,
+        color: '#4a6187',
+        fontFamily: "Lato-Regular",
+        paddingTop: 0,
+        paddingBottom: 0,
+        fontSize: 15,
+        marginTop: 15,
+        marginLeft: 10
     },
-    makeView: {
+    descriptiontxt: {
+        color: '#4a6187',
+        fontSize: 14,
+        marginLeft: 10,
+        marginTop: 15
+    },
+    underline: {
+        backgroundColor: 'white',
+        width: width,
+        height: 2,
+        marginTop: 10
+    },
+    saveView: {
         width: width - 50,
         height: 55,
         backgroundColor: '#33e098',
@@ -97,13 +96,12 @@ export default{
         alignItems: 'center',
         justifyContent: 'center',
     },
-   makeTxt: {
-       color: 'white',
-       fontFamily: "Lato-Regular",
-   },
+    saveTxt: {
+        color: 'white',
+        fontFamily: "Lato-Regular",
+    },
 
-
-   tabView: {
+    tabView: {
         width: width,
         ...ifIphoneX ({
             height: 60,
@@ -111,7 +109,7 @@ export default{
         },{
             height: 50,
             bottom: 0,
-        }),        
+        }),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

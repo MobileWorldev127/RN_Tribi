@@ -33,7 +33,8 @@ var groupList = [
 
 class home extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){
@@ -54,18 +55,23 @@ class home extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'newGroup'}));
     }
 
+    onClickedProfile(){
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={ () => { this.props.navigation.navigate('DrawerOpen') }}>
                             <Thumbnail square source = {images.ic_men} style = {styles.menuImg}/>
                         </Button>
                     </Left>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress = {() => this.onClickedProfile()}>
                             <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
                         </Button>
                     </Right>

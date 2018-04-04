@@ -17,7 +17,8 @@ import RecommendGroup from '../../../components/recommendGroup'
 
 class location extends Component<{}>{
     static navigationOptions = {
-        header: null
+        header: null,
+        gesturesEnabled: false
     }
 
     constructor(props){

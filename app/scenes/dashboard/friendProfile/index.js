@@ -76,11 +76,7 @@ class friendProfile extends Component<{}>{
                         <Label style = {styles.userCity}>New York</Label>
                         <Label style = {styles.userAbout}>Curabitur ullamcorper ultricies nisi.{'\n'}Nam eget dui.rhoncus</Label>
                     </View>
-                    <Button transparent style = {{marginBottom: 25}}>
-                        <View style = {styles.addView}>
-                            <Label style = {styles.addTxt}>ADD FRIEND</Label>
-                        </View>
-                    </Button>
+                
                 </View>
 
                 

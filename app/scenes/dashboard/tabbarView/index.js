@@ -22,7 +22,8 @@ import Location from '../location/index';
 class tabbarView extends Component<{}>{
     static navigationOptions = {
         header: null,
-        gesturesEnabled: false
+        gesturesEnabled: false,
+        drawerLabel: () => null
     }
 
     constructor(props) {
@@ -78,12 +79,8 @@ class tabbarView extends Component<{}>{
     }
 
     onLocation(){
-        this.setState({
-            isHome: false,
-            isFavorite: false,
-            isAccount: false,
-            isLocation: true,
-        })
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: false}}));
     }
 
     onCreateGroup(){
@@ -118,16 +115,7 @@ class tabbarView extends Component<{}>{
                 </View>
             )
         }
-        else if(this.state.isLocation){
-            var { dispatch } = this.props;
-            dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: false}}));
-            this.setState({
-                isHome: true,
-                isFavorite: false,
-                isAccount: false,
-                isLocation: false,
-            })
-        }
+        
     }
 
     showTitle(){

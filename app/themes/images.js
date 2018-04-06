@@ -37,7 +37,8 @@ const images = {
 
     //location
     ic_location_pin: require('../assets/img/ic_location_pin.png'),
-    ic_heart: require('../assets/img/ic_heart.png'),
+    ic_unselect_heart: require('../assets/img/ic_heart.png'),
+    ic_select_heart: require('../assets/img/ic_heart1.png'),
     ic_star0: require('../assets/img/ic_star0.png'),
     ic_star1: require('../assets/img/ic_star1.png'),
     ic_star2: require('../assets/img/ic_star2.png'),

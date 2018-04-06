@@ -129,6 +129,15 @@ class voteGroup extends Component<{}>{
         )
     }
 
+    onClickVoteLocation() {
+        this.setState({ 
+            isFeedModal: false, 
+            isVoteModeal: false, 
+        })
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: true}}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -209,7 +218,7 @@ class voteGroup extends Component<{}>{
                     onRequestClose = {() => {
                         alert('Modal has been closed')
                     }}>
-                        <VoteModal onClickedBack = {() => this.setState({ isFeedModal: false, isVoteModeal: false, })}/>
+                        <VoteModal onClickedBack = {() =>  this.setState({isFeedModal: false, isVoteModeal: false, }) } onClickVoteLocation = {() => this.onClickVoteLocation()}/>
                 </Modal>
 
             </View>

@@ -60,6 +60,11 @@ class home extends Component<{}>{
         dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
     }
 
+    onClickedGroup() {
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'voteGroup'}));
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -125,11 +130,14 @@ class home extends Component<{}>{
                             {
                                 groupList.map((item, index) => {
                                     return(
-                                        <View style = {styles.groupView} key = {index}>
-                                            <Label style = {styles.groupItemName}>{item.name}</Label>
-                                            <Label style = {styles.groupItemValue}>{item.value}</Label>
-                                            <View style = {styles.barView}/>
-                                        </View>
+                                        <TouchableOpacity onPress = {() => this.onClickedGroup()} key = {index}>
+                                            <View style = {styles.groupView} >
+                                                <Label style = {styles.groupItemName}>{item.name}</Label>
+                                                <Label style = {styles.groupItemValue}>{item.value}</Label>
+                                                <View style = {styles.barView}/>
+                                            </View>
+                                        </TouchableOpacity>
+                                        
                                     )
                                 })
                             }

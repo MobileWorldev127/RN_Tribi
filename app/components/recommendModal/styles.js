@@ -85,7 +85,7 @@ export default{
         height: 85,
         resizeMode: 'contain',
         position: 'absolute',
-        top: -40,
+        top: -370,
         right: 10,
     },
     recommendBtnView: {

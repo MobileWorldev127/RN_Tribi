@@ -30,12 +30,18 @@ import friendProfile from '../scenes/dashboard/friendProfile/index';
 
 const Drawer = DrawerNavigator(
     {
-        tabbarView: { screen: tabbarView },
-        // login: { screen: login },
+        tabbarView: { 
+            screen: tabbarView, 
+            navigationOptions: {
+                drawerLabel: () => null
+            }
+        },
+        
     },
     {
         initialRouteName: '',
-        headerMode: 'screen',
+        headerMode: 'none',
+        drawerLabel: () => null,
         contentComponent: props => <Sidebar {...props}/>
     }
 );

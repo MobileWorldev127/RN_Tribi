@@ -6,7 +6,7 @@ import {
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import { 
-    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView, Modal
+    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView, Modal, Dimensions,
 } from 'react-native';
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
@@ -14,6 +14,8 @@ import images from '../../../themes/images'
 import MapView,  { Marker } from 'react-native-maps';
 import RecommendModal from '../../../components/recommendModal'
 import RecommendGroup from '../../../components/recommendGroup'
+import Toast, {DURATION} from 'react-native-easy-toast'
+const { width, height } = Dimensions.get('window');
 
 class location extends Component<{}>{
     static navigationOptions = {
@@ -86,8 +88,13 @@ class location extends Component<{}>{
         this.setState({
             groupmodalVisible: false
         })
-        var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'voteGroup'}));
+        this.refs.toast.show('Recommendation Successful!', DURATION.LENGTH_LONG)
+    }
+
+    onClickedBack(){
+        Keyboard.dismiss()
+        var { dispatch } = this.props; 
+        dispatch(NavigationActions.back())
     }
 
     render(){
@@ -113,7 +120,7 @@ class location extends Component<{}>{
                 </MapView>
                 <Header style = {styles.header}>
                     <Left>
-                        <Button transparent onPress = {() => {var { dispatch } = this.props; dispatch(NavigationActions.back()) }}>
+                        <Button transparent onPress = {() => this.onClickedBack()}>
                             <Thumbnail square source = {images.ic_backBtn} style = {styles.menuImg}/>
                         </Button>
                     </Left>
@@ -142,6 +149,17 @@ class location extends Component<{}>{
                     />
                 </View>
 
+                <Toast
+                    ref = 'toast'
+                    style = {{backgroundColor: '#35e49c'}}
+                    position = 'top'
+                    positionValue = {height/5}
+                    fadeInDuration = {750}
+                    fadeOutDuration = {1000}
+                    opacity = {0.8}
+                    textStyle = {{color: 'white'}}
+                />
+
                 <Modal
                     animationType = 'fade'
                     transparent = {false}
@@ -163,7 +181,7 @@ class location extends Component<{}>{
                         alert('Modal has been closed')
                     }}>
 
-                    <RecommendGroup onClickedRecommend = {() => this.onClickedRecommend()}/>
+                    <RecommendGroup onClickedBack = {() => this.setState({ groupmodalVisible: false })} onClickedRecommend = {() => this.onClickedRecommend()}/>
                 </Modal>
             </View>
         )

@@ -14,7 +14,8 @@ import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
 class voteModal extends Component<{}>{
     static navigationOptions = {
         header: null,
-        gesturesEnabled: false
+        gesturesEnabled: false,
+        drawerLabel: () => null
     }
 
     constructor(props) {
@@ -26,7 +27,7 @@ class voteModal extends Component<{}>{
 
     onClickLocation(){
         var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'location'}));
+        dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: true}}));
     }
 
     render(){
@@ -45,7 +46,7 @@ class voteModal extends Component<{}>{
                         <Label style = {styles.label1}>11/04/2018  •  6:30 pm</Label>
                     </View>
 
-                    <TouchableOpacity onPress = {() => this.onClickLocation()}>  
+                    <TouchableOpacity onPress = {this.props.onClickVoteLocation}>  
                         <Thumbnail square source = {images.tab_location} style = {styles.locationImg}/>
                     </TouchableOpacity>
 
@@ -61,8 +62,6 @@ class voteModal extends Component<{}>{
                     <View style = {styles.inputView}>
                         <AutoGrowingTextInput style={styles.textInput} placeholder={'Type Comment'} />
                     </View>
-                    
-                    
                 </View>
 
                 <Button style = {styles.voteBtnView} onPress = { this.props.onClickedBack}>

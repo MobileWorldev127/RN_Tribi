@@ -15,7 +15,8 @@ import images from '../../../themes/images'
 class login extends Component<{}>{
     static navigationOptions = {
         header: null,
-        gesturesEnabled: false
+        gesturesEnabled: false,
+        drawerLabel: () => null
     }
 
     constructor(props){
@@ -93,9 +94,8 @@ class login extends Component<{}>{
     }
 
     onForgotPassword() {
-        // var { dispatch } = this.props;
-        // dispatch(NavigationActions.navigate({routeName: 'forgotpassword'}));
-        this.props.navigation.navigate('DrawerOpen')
+        var { dispatch } = this.props;
+        dispatch(NavigationActions.navigate({routeName: 'forgotpassword'}));
     }
 
     render(){
@@ -146,7 +146,7 @@ class login extends Component<{}>{
                             </View>
                         </Button>
                         <View style = {styles.signUpView}>
-                            <Label style = {styles.label1}>Dont' have account?</Label>
+                            <Label style = {styles.label1}>Don’t have an account?</Label>
                             <Button transparent onPress = {() => this.onSignup()}>
                                 <Label style = {styles.label2}>  Sign Up</Label>
                             </Button>

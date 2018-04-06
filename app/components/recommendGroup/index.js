@@ -12,11 +12,11 @@ import styles from './styles';
 import images from '../../themes/images'
 
 var groupList = [
-    {name: 'Design Community', members: 12},
-    {name: 'Sport Community', members: 4},
-    {name: 'Music Community', members: 7},
-    {name: 'Travel Community', members: 10},
-    {name: 'Design Community', members: 12},
+    {name: 'Design Community', members: 12, isSelected: false },
+    {name: 'Sport Community', members: 4, isSelected: false},
+    {name: 'Music Community', members: 7, isSelected: false},
+    {name: 'Travel Community', members: 10, isSelected: false},
+    {name: 'Design Community', members: 12, isSelected: false},
 ]
 
 class recommendGroup extends Component<{}>{
@@ -29,8 +29,33 @@ class recommendGroup extends Component<{}>{
         super(props);
         this.state = {
             modalVisible: false,
+            groupList: groupList
         }
-    }   
+    }
+
+    componentWillMount() {
+        var groupList = [
+            {name: 'Design Community', members: 12, isSelected: false },
+            {name: 'Sport Community', members: 4, isSelected: false},
+            {name: 'Music Community', members: 7, isSelected: false},
+            {name: 'Travel Community', members: 10, isSelected: false},
+            {name: 'Design Community', members: 12, isSelected: false},
+        ]
+        this.setState({
+            modalVisible: false,
+            groupList: groupList
+        })
+    }
+
+    onSelectGroup(item, index){
+        if(item.isSelected){
+            this.state.groupList[index]['isSelected'] = false
+            this.setState({modalVisible: true})
+        }else{
+            this.state.groupList[index]['isSelected'] = true
+            this.setState({modalVisible: true})
+        }
+    }
 
     renderRow(item, index){
         return(
@@ -40,7 +65,10 @@ class recommendGroup extends Component<{}>{
                     <Label style = {styles.groupName}>{item.name}</Label>
                     <Label style = {styles.groupMembers}>{item.members} members</Label>
                 </View>
-                <Thumbnail square source = {images.ic_uncheckImage} style = {styles.checkIcon}/>
+                <TouchableOpacity onPress = {() => this.onSelectGroup(item, index)}>
+                    <Thumbnail square source = {item.isSelected? images.ic_checkImage : images.ic_uncheckImage} style = {styles.checkIcon}/>
+                </TouchableOpacity>
+                
             </View>
         )
     }
@@ -48,11 +76,11 @@ class recommendGroup extends Component<{}>{
     render(){
         return(
             <View style = {styles.modalView}>
-                <TouchableOpacity style = {styles.blankView}>
+                <TouchableOpacity style = {styles.blankView} onPress = { this.props.onClickedBack}>
                 </TouchableOpacity>
                     <View style = {styles.modalMainView}>     
                         {
-                            groupList.map((item, index) => {
+                            this.state.groupList.map((item, index) => {
                                 return( this.renderRow(item, index))
                             })
                         }

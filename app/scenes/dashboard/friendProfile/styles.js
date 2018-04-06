@@ -102,18 +102,6 @@ export default{
         borderRadius: 50,
         marginTop: -70
     },
-    addView: {
-        width: width - 50,
-        height: 55,
-        backgroundColor: '#33e098',
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-   addTxt: {
-       color: 'white',
-       fontFamily: "Lato-Regular",
-   },
 
    tabView: {
         width: width,

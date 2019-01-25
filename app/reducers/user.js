@@ -1,5 +1,6 @@
 const initialFeedState = {
-    userInfo: []   
+    userInfo: {},
+    groups: []
 }
 
 function UserInfo(state = initialFeedState, action){
@@ -9,10 +10,15 @@ function UserInfo(state = initialFeedState, action){
                 ...state,
                 userInfo: action.data
             };
-        case 'userInfo_init':
+        case 'saveUserInfo':
             return {
                 ...state,
-                userInfo: []
+                userInfo: action.data
+            };
+        case 'saveGroups':
+            return {
+                ...state,
+                groups: action.data
             };
         default:
             return state;

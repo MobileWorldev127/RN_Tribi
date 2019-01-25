@@ -1,7 +1,7 @@
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from '../navigators/AppNavigator';
 
-const firstAction = AppNavigator.router.getActionForPathAndParams('login');
+const firstAction = AppNavigator.router.getActionForPathAndParams('welcome');
 const initialNavState = AppNavigator.router.getStateForAction(firstAction);
 
 

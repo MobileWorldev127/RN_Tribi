@@ -1,18 +1,30 @@
+import { Body, Button, Header, Label, Left, Right, Thumbnail, View } from 'native-base';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {
-    Container, Content, ody, Text, Thumbnail, Button, Footer, View, Label, Item, Input, Header, Left, Right, 
-  Body
-} from 'native-base';
+import { Dimensions, TouchableOpacity } from 'react-native';
+import Toast from "react-native-easy-toast";
+import ImagePicker from 'react-native-image-picker';
 import { NavigationActions } from 'react-navigation';
-import { 
-    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView
-} from 'react-native';
+import { connect } from 'react-redux';
+import { getGroups, uploadPhoto } from '../../../actions';
+import images from '../../../themes/images';
 import styles from './styles';
-import { BallIndicator } from 'react-native-indicators'
-import images from '../../../themes/images'
-
-class userProfile extends Component<{}>{
+const { width, height } = Dimensions.get("window");
+var options = {
+    title: 'Select Avatar',
+    cameraType: 'front',
+    mediaType: 'photo',
+    maxWidth: '500',
+    maxHeight: '500',
+    customButtons: [
+      
+    ],
+    storageOptions: {
+      skipBackup: true,
+      path: 'images'
+    }
+  };
+// import PhotoUpload from 'react-native-photo-upload'
+class userProfile extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -21,12 +33,14 @@ class userProfile extends Component<{}>{
     constructor(props){
         super(props);
         this.state = {
-
+            avatarSource: null
         }
     }
     
     componentWillMount() {
-        
+        this.setState({
+            avatarSource: { uri: this.props.user.photo }
+        })
     }
 
 
@@ -54,14 +68,63 @@ class userProfile extends Component<{}>{
         var { dispatch } = this.props;
         dispatch(NavigationActions.navigate({routeName: 'editProfile'}));
     }
-
+    openImagePicker = () => {
+        ImagePicker.showImagePicker(options, (response) => {
+            
+            if (response.didCancel) {
+              
+            }
+            else if (response.error) {
+              
+            }
+            else if (response.customButton) {
+              
+            }
+            else {
+              // let source = { uri: response.uri };
+          
+              // You can also display the image using data:
+              let source = { uri: 'data:image/jpeg;base64,' + response.data };
+              let params = {
+                  user_id: this.props.user._id,
+                  photo: source
+              }
+              uploadPhoto(params).then((res) => {
+                  if (res.success) {
+                    var { dispatch } = this.props;
+                    dispatch ({ type: 'saveUserInfo', data: res.data.user });
+                    this.setState({
+                        avatarSource: source
+                    });
+                    getGroups(this.props.user.phone).then((data) => {
+                        console.log(data)
+                        dispatch ({ type: 'saveGroups', data: data.data.groups });
+                    })
+                  } else {
+                      this.refs.errortoast.show(
+                        res.error.message,
+                        DURATION.LENGTH_LONG
+                      );
+                  }
+              })
+            }
+          });
+    }
+    onBack = () => {
+        if (this.props.navigation.state.params && typeof this.props.navigation.state.params.onNavigateBack !== "undefined") {
+            this.props.navigation.state.params.onNavigateBack(); 
+        }
+        this.props.navigation.goBack()
+    }
     render(){
         return (
             <View style={styles.container}>
-                <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
+
+                    <Thumbnail square source = {images.ic_home_backgroundImage} 
+                        style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
-                        <Button transparent onPress = {() => this.props.navigation.goBack()}>
+                        <Button transparent onPress = {() =>{this.onBack()}}>
                             <Thumbnail square source = {images.ic_backBtn} style = {styles.menuImg}/>
                         </Button>
                     </Left>
@@ -76,10 +139,12 @@ class userProfile extends Component<{}>{
                 </Header>
                 <View style = {styles.mainContainer}>
                     <View style = {styles.aboutView}>
-                        <Thumbnail square source = {images.ic_avatar} style = {styles.userImg}/>
-                        <Label style = {styles.userName}>DEN POTAPOV</Label>
-                        <Label style = {styles.userCity}>Toronto</Label>
-                        <Label style = {styles.userAbout}>Curabitur ullamcorper ultricies nisi.{'\n'}Nam eget dui.rhoncus</Label>
+                        <TouchableOpacity onPress={this.openImagePicker}>
+                            <Thumbnail square source = {this.state.avatarSource} style = {styles.userImg} />  
+                        </TouchableOpacity>
+                        <Label style = {styles.userName}>{ this.props.user.username }</Label>
+                        <Label style = {styles.userCity}>{ this.props.user.location?this.props.user.location:'Undefined' }</Label>
+                        <Label style = {styles.userAbout}>{ this.props.user.description?this.props.user.description:'No description' }</Label>
                         
                     </View>
                     <TouchableOpacity onPress = {() => this.onClickedProfileEdit()}>
@@ -118,11 +183,24 @@ class userProfile extends Component<{}>{
                     </TouchableOpacity>
                 </View>
 
-
+          <Toast
+            ref="errortoast"
+            style={{ backgroundColor: "#f98192" }}
+            position="top"
+            positionValue={height / 2}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={1}
+            textStyle={{ color: "white" }}
+          />
             </View>
         );
 
     }
 }
-
-export default connect()(userProfile);
+function mapStateToProp(state) {
+    return {
+        user: state.user.userInfo
+    }
+}
+export default connect(mapStateToProp)(userProfile);

@@ -16,7 +16,7 @@ var commendList = [
     {user: '3'},
 ]
 
-class commendFeedModal extends Component<{}>{
+class commendFeedModal extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -33,13 +33,13 @@ class commendFeedModal extends Component<{}>{
         return(
             <Content>
                 {   
-                    commendList.map((item, index) => {
+                    this.props.venue.thumbup.map((item, index) => {
                         return(
                             <View style = {styles.rowView}  key = {index}>
-                                <Thumbnail square source = {images.ic_avatar2} style = {styles.userImg}/>
+                                <Thumbnail square source = {{uri:item.photo}} style = {styles.userImg}/>
                                 <View style = {{flex: 1}}>
-                                    <Label style = {styles.label1}>Amanda</Label>
-                                    <Label style = {styles.label2}>Like this place, everything will be great. Let's do it.</Label>
+                                    <Label style = {styles.label1}>{item.username}</Label>
+                                    <Label style = {styles.label2}>{item.comment}</Label>
                                 </View>
                             </View>
                         )
@@ -54,13 +54,13 @@ class commendFeedModal extends Component<{}>{
         return(
             <Content>
                 {   
-                    commendList.map((item, index) => {
+                    this.props.venue.thumbdown.map((item, index) => {
                         return(
                             <View style = {styles.rowView}  key = {index}>
-                                <Thumbnail square source = {images.ic_avatar2} style = {styles.userImg}/>
+                                <Thumbnail square source = {{uri:item.photo}} style = {styles.userImg}/>
                                 <View style = {{flex: 1}}>
-                                    <Label style = {styles.label1}>Amanda</Label>
-                                    <Label style = {styles.label2}>Like this place, everything will be great. Let's do it.</Label>
+                                    <Label style = {styles.label1}>{item.username}</Label>
+                                    <Label style = {styles.label2}>{item.comment}</Label>
                                 </View>
                             </View>
                         )
@@ -78,10 +78,10 @@ class commendFeedModal extends Component<{}>{
                 </TouchableOpacity>
                 <View style = {styles.modalMainView}>
                     <Tabs initialPage={0} tabBarUnderlineStyle = {{backgroundColor: '#33e098', height: 2}} locked = {true}>
-                        <Tab heading= { <TabHeading><Thumbnail square source = {images.ic_finger_up} style = {styles.tabicon}/><Text style = {styles.tabtxt}>6</Text></TabHeading> } > 
+                        <Tab heading= { <TabHeading><Thumbnail square source = {images.ic_finger_up} style = {styles.tabicon}/><Text style = {styles.tabtxt}>{this.props.venue.thumbup.length}</Text></TabHeading> } > 
                             {this.showLikeCommend()}
                         </Tab>
-                        <Tab heading= { <TabHeading><Thumbnail square source = {images.ic_finger_down} style = {styles.tabicon}/><Text style = {styles.tabtxt}>9</Text></TabHeading> } > 
+                        <Tab heading= { <TabHeading><Thumbnail square source = {images.ic_finger_down} style = {styles.tabicon}/><Text style = {styles.tabtxt}>{this.props.venue.thumbdown.length}</Text></TabHeading> } > 
                             {this.showUnLikeCommend()}
                         </Tab>
                     </Tabs>

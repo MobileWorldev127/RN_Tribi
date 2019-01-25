@@ -18,6 +18,9 @@ export default{
         backgroundColor: 'white',
         // justifyContent: 'flex-end'
     },
+    datepickerView: {
+        width: '100%',
+    },
     blankView: {
         width: width,
         height: height,
@@ -50,9 +53,16 @@ export default{
         borderColor: 'lightgray'
     },
     groupIcon: {
-        width: 80,
+        flexDirection: 'row',
+        paddingLeft: 5
+    },
+    memberIcon: {
+        width: 34,
         height: 34,
-        resizeMode: 'contain'
+        resizeMode: 'cover',
+        borderRadius: 17,
+        marginTop:10,
+        marginLeft: -10
     },
     groupName: {
         color: '#4a6187',

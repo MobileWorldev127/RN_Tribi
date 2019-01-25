@@ -19,7 +19,7 @@ import NewGroup from '../newGroup/index';
 import Location from '../location/index';
 
 // create a component
-class tabbarView extends Component<{}>{
+class tabbarView extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false,
@@ -80,6 +80,7 @@ class tabbarView extends Component<{}>{
 
     onLocation(){
         var { dispatch } = this.props;
+        dispatch({type:'changeVenuesOfLocation', data: this.props.nearvenues})
         dispatch(NavigationActions.navigate({routeName: 'location', params: {isModal: false}}));
     }
 
@@ -178,6 +179,10 @@ class tabbarView extends Component<{}>{
         );
     }
 }
-
+function mapStateToProps(state) {
+    return { categories: state.appdata.categories,
+             nearvenues: state.appdata.nearvenues,
+             user: state.user.userInfo  }
+}
 //make this component available to the app
-export default connect()(tabbarView);
+export default connect(mapStateToProps)(tabbarView);

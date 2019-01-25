@@ -13,7 +13,7 @@ import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 import tabbarView from '../../dashboard/tabbarView/index';
 
-class welcome extends Component<{}>{
+class welcome extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false

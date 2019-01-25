@@ -103,5 +103,10 @@ export default{
        color: '#33e098',
        fontFamily: "Lato-Regular",
        textDecorationLine : 'underline',
+   },
+   loadingBar: {
+       position: 'absolute',
+       top: height/3,
+       left: (width-40)/2,
    }
 }

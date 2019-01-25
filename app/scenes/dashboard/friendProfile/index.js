@@ -12,7 +12,7 @@ import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 
-class friendProfile extends Component<{}>{
+class friendProfile extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -21,12 +21,33 @@ class friendProfile extends Component<{}>{
     constructor(props){
         super(props);
         this.state = {
-
+			name: '',
+			city: '',
+			hasthumbnail: '',
+			thumbnail: '',
+			jobtitle: ''
         }
     }
     
     componentWillMount() {
-        
+        let profile_info = this.props.navigation.state.params.item
+		let name_str = profile_info.givenName + ' ' + profile_info.familyName
+		let city_str = 'Unknown'
+		if (profile_info.postalAddresses.length > 0) {
+			city_str =  profile_info.postalAddresses[0].city
+		}
+		let image_str = images.ic_photo_default
+		if (profile_info.hasThumbnail) {
+			image_str = profile_info.thumbnailPath
+		}
+		let jobtitle = profile_info.jobTitle
+		this.setState({
+			name: name_str,
+			city: city_str,
+			hasthumbnail: profile_info.hasThumbnail,
+			thumbnail: image_str,
+			jobtitle: jobtitle
+		})
     }
 
 
@@ -71,10 +92,10 @@ class friendProfile extends Component<{}>{
                 </Header>
                 <View style = {styles.mainContainer}>
                     <View style = {styles.aboutView}>
-                        <Thumbnail square source = {images.ic_avatar2} style = {styles.userImg}/>
-                        <Label style = {styles.userName}>KATE LAGUTA</Label>
-                        <Label style = {styles.userCity}>New York</Label>
-                        <Label style = {styles.userAbout}>Curabitur ullamcorper ultricies nisi.{'\n'}Nam eget dui.rhoncus</Label>
+			{this.state.hasthumbnail?<Thumbnail square source = {{uri:this.state.thumbnail}} style = {styles.userImg}/>:<Thumbnail square source = {this.state.thumbnail} style = {styles.userImg}/>}
+                        <Label style = {styles.userName}>{this.state.name}</Label>
+                        <Label style = {styles.userCity}>{this.state.city}</Label>
+                        <Label style = {styles.userAbout}>{this.state.jobtitle}</Label>
                     </View>
                 
                 </View>

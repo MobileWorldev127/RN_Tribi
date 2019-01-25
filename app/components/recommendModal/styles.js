@@ -14,7 +14,7 @@ export default{
     },
     modalMainView: {
         width: width - 50,
-        height: 380,
+        height: 450,
         backgroundColor: 'white',
         justifyContent: 'flex-end'
     },
@@ -85,7 +85,7 @@ export default{
         height: 85,
         resizeMode: 'contain',
         position: 'absolute',
-        top: -370,
+        top: -440,
         right: 10,
     },
     recommendBtnView: {

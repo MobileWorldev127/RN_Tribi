@@ -41,6 +41,7 @@ export default{
         height: 44,
         resizeMode: 'cover',
         borderRadius: 22,
+        marginTop: 10,
         marginRight: 10
     },
     popularTxt: {
@@ -74,6 +75,20 @@ export default{
         backgroundColor: 'white',
         marginRight: 10,
         justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#4a6187',
+        shadowOpacity: 0.5,
+        shadowRadius: 15,
+        shadowOffset: {height: 10, width: 10},
+    },
+    categoryView: {
+        flexDirection: 'column',
+        width: 136,
+        height: 112,
+        borderRadius: 5,
+        backgroundColor: 'white',
+        marginRight: 10,
+        justifyContent: 'space-between',
         alignItems: 'center',
         shadowColor: '#4a6187',
         shadowOpacity: 0.5,
@@ -116,23 +131,23 @@ export default{
         marginTop: 20
     },
     subCategoryView: {
+        width: '100%',
         flexDirection: 'row',
-        width: 96,
         alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: -10
+        justifyContent: 'space-around',
+        // marginTop: -10
     },
     categoryIcon: {
-        width: 68,
-        height: 68,
         resizeMode: 'contain',
-        marginLeft: -10,
-        marginTop: 10
+        left: 0,
+        bottom: 0
     },
     categoryItemValue: {
         color: '#4a6187',
         fontSize: 18,
         fontFamily: "Lato-Bold",
+        right: 0,
+        bottom: 0
     },
     groupView: {
         width: 136,

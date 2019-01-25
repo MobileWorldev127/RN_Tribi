@@ -26,7 +26,9 @@ export default{
         color: '#4a6187',
         fontSize: 12,
         fontFamily: "Lato-Regular",
-        marginTop: 15
+        marginTop: 15,
+        paddingRight: 5,
+        flexWrap: "wrap"
     },
     modaldeFeedbackDate: {
         color: '#4a6187',
@@ -51,6 +53,6 @@ export default{
         resizeMode: 'contain'
     },
     eachFeedbackView: {
-        marginTop: 25,
+        marginBottom: 25,
     }
 }

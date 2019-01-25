@@ -12,9 +12,11 @@ export default{
        backgroundColor: 'rgba(0, 0, 0, 0.6)',
        paddingBottom: 40,
     },
+    keyboardView:{
+        
+    },
     modalMainView: {
         width: width - 50,
-        height: 420,
         backgroundColor: 'white',
         alignItems: 'center',
         padding: 25,
@@ -24,6 +26,18 @@ export default{
         fontSize: 15,
         color: '#4a6187',
         fontFamily: "Lato-Bold",
+    },
+    groupIcon: {
+        flexDirection: 'row',
+        paddingLeft: 5
+    },
+    memberIcon: {
+        width: 34,
+        height: 34,
+        resizeMode: 'cover',
+        borderRadius: 17,
+        marginTop:10,
+        marginLeft: -10
     },
     countmemberTxt: {
         fontSize: 12,

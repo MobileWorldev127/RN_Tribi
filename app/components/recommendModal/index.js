@@ -13,10 +13,12 @@ import images from '../../themes/images'
 import RecommendLocation from '../recommendLocation'
 import RecommendFeedback from '../recommendFeedback'
 import Toast, {DURATION} from 'react-native-easy-toast'
+
+import { setFavoriteVenue, unsetFavoriteVenue } from '../../actions'
 const { width, height } = Dimensions.get('window');
 
 
-class recommendModal extends Component<{}>{
+class recommendModal extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -30,10 +32,15 @@ class recommendModal extends Component<{}>{
             groupmodalVisible: false,
             isfavorite: false,
         }
+        
     }
     componentWillMount() {
+        let favorite_venues = this.props.userInfo.favorite_venues
+        let venue_id = this.props.venue.id
+        let exist_in_favorite = favorite_venues.filter(function(item){return item == venue_id})
+
         this.setState({
-            isfavorite: false
+            isfavorite: exist_in_favorite.length>0
         })
     }
 
@@ -52,17 +59,35 @@ class recommendModal extends Component<{}>{
     }  
 
     onFavorite() {
-        if(!this.state.isfavorite){
-            this.refs.toast.show('Added to Favourites', DURATION.LENGTH_LONG)
-        }else{
-            this.refs.toast.show('Removed From Favourites', DURATION.LENGTH_LONG)
-        }
-
+        // if(!this.state.isfavorite){
+//             this.refs.toast.show('Added to Favourites', DURATION.LENGTH_LONG)
+//         }else{
+//             this.refs.toast.show('Removed From Favourites', DURATION.LENGTH_LONG)
+//         }
+        let user_id = this.props.userInfo._id
+		let venue_id = this.props.venue.id
+		var { dispatch } = this.props;
         if(this.state.isfavorite){
-            this.setState({ isfavorite: false })
+            unsetFavoriteVenue(user_id, venue_id).then(data => {
+                this.setState({ isfavorite: false })
+				if (data.success) {
+                    dispatch ({ type: 'saveUserInfo', data: data.data.user });
+                    this.refs.toast.show('Removed from Favourites', DURATION.LENGTH_LONG)
+				}else{
+					this.refs.toast.show('Removed from Favourites', DURATION.LENGTH_LONG)
+				}
+			})
         }
         else {
-            this.setState({ isfavorite: true })
+			setFavoriteVenue(user_id, venue_id).then(data => {
+                this.setState({ isfavorite: true })
+				if (data.success) {
+                    dispatch ({ type: 'saveUserInfo', data: data.data.user });
+                    this.refs.toast.show('Added to Favourites', DURATION.LENGTH_LONG)
+				}else{
+					this.refs.toast.show('Added to Favourites', DURATION.LENGTH_LONG)
+				}
+			})
         }
     }
 
@@ -73,9 +98,11 @@ class recommendModal extends Component<{}>{
                 </TouchableOpacity>
                 
                 <View style = {styles.modalMainView}>
+                    <ScrollView horizontal = {false} showsHorizontalScrollIndicator = {false} >
                     {
-                        this.state.isLocation? <RecommendLocation /> : <RecommendFeedback />
+                        this.state.isLocation? <RecommendLocation venue={this.props.venue}/> : <RecommendFeedback venue={this.props.venue}/>
                     }      
+                    </ScrollView>
                     <TouchableOpacity onPress = {() => this.onFavorite()}>
                         <Thumbnail square source = {this.state.isfavorite? images.ic_select_heart : images.ic_unselect_heart} style = {styles.heartImg}/>
                     </TouchableOpacity>              
@@ -114,5 +141,7 @@ class recommendModal extends Component<{}>{
         )
     }
 }
-
-export default connect()(recommendModal);
+function mapStateToProps(state) {
+    return { userInfo: state.user.userInfo }
+}
+export default connect(mapStateToProps,null)(recommendModal);

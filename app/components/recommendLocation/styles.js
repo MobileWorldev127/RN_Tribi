@@ -22,6 +22,12 @@ export default{
         fontFamily: "Lato-Regular",
         marginTop: 10
     },
+    modalcontact: {
+        color: '#4a6187',
+        fontSize: 12,
+        fontFamily: "Lato-Regular",
+        marginTop: 10
+    },
     modaldescription: {
         color: '#4a6187',
         fontSize: 12,

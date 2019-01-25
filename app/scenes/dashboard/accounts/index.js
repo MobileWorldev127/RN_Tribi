@@ -19,8 +19,10 @@ var searchList = [
     {name: 'Den Potapov', city: 'Kyiv', avatar: images.ic_avatar2},
     {name: 'Joshua Francis', city: 'Toronto', avatar: images.ic_avatar1},
 ]
+var Contacts = require('react-native-contacts')
 
-class accounts extends Component<{}>{
+function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.apply(f,g))}var f=this,g=arguments;return clearTimeout(d),d=setTimeout(h,b),c&&!d&&(e=a.apply(f,g)),e}}
+class accounts extends Component{
     static navigationOptions = {
         header: null,
         gesturesEnabled: false
@@ -30,26 +32,60 @@ class accounts extends Component<{}>{
         super(props);
         this.state = {
             searchWord: '',
-            isLoading: false
+            originalContact: [],
+            isLoading: false,
+			contacts: []
         }
+        
     }
     
     componentWillMount() {
+		Contacts.getAll((err, contacts) => {
+          if (err) throw err;
+
+          contacts.sort(function(a, b) { 
+            let aname = a.givenName + ' ' + a.familyName
+            let bname = b.givenName + ' ' + b.familyName
+            if (aname < bname) {
+                return -1;
+              }
+              if (aname > bname) {
+                return 1;
+              }
+            
+              // names must be equal
+              return 0;
+            })
+          console.log(contacts)
+		  this.setState({
+              originalContact: contacts,
+			  contacts: contacts
+		  })
+		})
     }
 
-    onClickedFriendProfile(){
+    onClickedFriendProfile(item){
         var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({routeName: 'friendProfile'}));
+        dispatch(NavigationActions.navigate({routeName: 'friendProfile', params: {item}}));
     }
 
     renderRow(item, index){
+		let name_str = item.givenName + ' ' + item.familyName
+		let city_str = 'Unknown'
+		if (item.postalAddresses.length > 0) {
+			city_str =  item.postalAddresses[0].city
+		}
+		let image_str = images.ic_photo_default
+		if (item.hasThumbnail) {
+			image_str = item.thumbnailPath
+		}
         return(
-            <TouchableOpacity onPress = {() => this.onClickedFriendProfile()} key = {index}>
+            <TouchableOpacity onPress = {() => this.onClickedFriendProfile(item)} key = {index}>
                 <View style = {styles.rowView} >
-                    <Thumbnail square source = {item.avatar} style = {styles.userImg}/>
+			{item.hasThumbnail?<Thumbnail square source = {{uri:image_str}} style = {styles.userImg}/>:<Thumbnail square source = {image_str} style = {styles.userImg}/>}
                     <View>
-                        <Label style = {styles.nametxt}>{item.name}</Label>
-                        <Label style = {styles.citytxt}>{item.city}</Label>
+                        <Label style = {styles.nametxt}>{name_str}</Label>
+                        <Label style = {styles.citytxt}>{city_str}</Label>
                     </View>
                     <View style = {styles.underLine}/>
                 </View>
@@ -61,8 +97,16 @@ class accounts extends Component<{}>{
         var { dispatch } = this.props;
         dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
     }
-
-    
+    onSearch = debounce(searchTerm => {
+        let originalContacts = this.state.originalContact
+        let filteredContacts = originalContacts.filter((contact) => {
+            let name_str = contact.givenName + ' ' + contact.familyName
+            return name_str.toLowerCase().indexOf(searchTerm.toLowerCase()) >=0 
+        })
+        this.setState({
+            contacts: filteredContacts
+        })
+    }, 300)
 
     render(){
         return (
@@ -79,7 +123,7 @@ class accounts extends Component<{}>{
                     </Body>
                     <Right>
                         <Button transparent onPress = {() => this.onClickedProfile()}>
-                            <Thumbnail square source = {images.ic_avatar} style = {styles.avatarImg}/>
+                            <Thumbnail square source = {{uri: this.props.user.photo}} style = {styles.avatarImg}/>
                         </Button>
                     </Right>
                 </Header>
@@ -90,7 +134,7 @@ class accounts extends Component<{}>{
                         <TextInput
                             ref = 'username'
                             style = {styles.inputTxt}
-                            onChangeText = { text => this.setState({ searchWord: text })}
+                            onChangeText = { text => this.onSearch(text)}
                             value = {this.state.searchWord}
                             placeholder = "Start typing"
                             placeholderTextColor = "#4a6187"
@@ -100,7 +144,7 @@ class accounts extends Component<{}>{
                     </View>
                     <View style = {styles.listView}>
                         {
-                            searchList.map((item, index) => {
+                            this.state.contacts.map((item, index) => {
                                 return(this.renderRow(item, index))
                             })
                         }
@@ -111,5 +155,9 @@ class accounts extends Component<{}>{
 
     }
 }
-
-export default connect()(accounts);
+function mapStateToProp(state) {
+    return {
+        user: state.user.userInfo
+    }
+}
+export default connect(mapStateToProp)(accounts);

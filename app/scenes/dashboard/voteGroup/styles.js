@@ -19,6 +19,18 @@ export default{
         top: 0,
         left: 0,
     },
+    groupIcon: {
+        flexDirection: 'row',
+        paddingLeft: 5
+    },
+    memberIcon: {
+        width: 34,
+        height: 34,
+        resizeMode: 'cover',
+        borderRadius: 17,
+        marginTop:10,
+        marginLeft: -10
+    },
     mainContainer: {
         width: width,
         padding: 25,
@@ -32,6 +44,22 @@ export default{
         borderBottomWidth: 0,
         marginTop: 5
     },
+    addfriendTouch: {
+        position: 'absolute',
+        top: 10,
+        right: 10,
+    },
+    leaveGroupTouch: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+    },
+    addfriendImg: {
+        width: 24,
+        height: 24,
+        resizeMode: 'contain',
+        borderRadius: 12, 
+    },
     menuImg: {
         width: 22,
         height: 22,
@@ -43,6 +71,7 @@ export default{
         height: 44,
         resizeMode: 'cover',
         borderRadius: 20,
+        marginTop: 10,
         marginRight: 10
     },
     screentitle: {
@@ -158,6 +187,10 @@ export default{
         height: 21,
         tintColor: '#33e098',
     },
+    locationImgTouchable: {
+        position: 'absolute',
+        right: 0
+    },
     rowtitletxt: {
         color: '#4a6187',
         fontSize: 14,
@@ -181,7 +214,7 @@ export default{
         color: 'white'
     },
     fingerView: {
-        width: width * 4 / 7.5,
+        width: width /2 ,
         paddingLeft: 20,
         paddingTop: 5,
         paddingBottom: 5,
@@ -190,6 +223,10 @@ export default{
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'transparent'
+    },
+    thumbViews: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     userImg: {
         width: 20,
@@ -201,7 +238,8 @@ export default{
     fingerUpView: {
         width: 50,
         height: 37,
-        borderRadius: 9,
+        borderTopLeftRadius: 9,
+        borderBottomLeftRadius: 9,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
@@ -211,7 +249,8 @@ export default{
     fingerDownView: {
         width: 50,
         height: 37,
-        borderRadius: 9,
+        borderTopRightRadius: 9,
+        borderBottomRightRadius: 9,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',

@@ -1,10 +1,35 @@
 export const API = {
-    CONVERT_URL: 'https://api.rss2json.com/v1/api.json?rss_url=',
-    FEED_URL: 'https://stockchase.com/rss/last90days',
-    API_KEY: 'suxcx2gsbbptvsiymblbbn1eym1jaqalqarr4lcr',
-    PRICE_API_KEY: '3SEVL3AJB4OUL2FH',
-    REGISTER_URL: 'https://stockchase.com/api/v1/user/register',
-    LOGIN_URL: 'https://stockchase.com/api/v1/user/authenticate',
-    TOKEN: 'TxUsrGM9VZWgHFjb8XCjfpNQ57w82Bn5D6vAFGRzsPXubhVQdHMRjFc84ECy',
-    WATCHLIST_URL: 'https://stockchase.com/api/v1/watchlist/',
+    BASE_URL: 'http://tribi-env-1.3eief9hcp2.us-east-2.elasticbeanstalk.com/',
+    //BASE_URL: 'http://localhost:3000/',
+    //BASE_URL: 'https://tribi.herokuapp.com/',
+    CATEGORIES: 'foursquare/categories',
+    NEARVENUES: 'foursquare/popularvenues',
+    VENUEDETAIL: 'foursquare/venuedetails',
+	
+
+    SETFVORITEVENUE: 'user/set_favorite_venue',
+    UNSETFVORITEVENUE: 'user/unset_favorite_venue',
+
+    GETGROUPS: 'foursquare/get_groups',
+    GETFAVORITES: 'user/get_favorite_venues',
+    CREATENEWGROUP: 'foursquare/create_group',
+    RECOMMENDVENUE: 'foursquare/recommend_venue',
+    JOINGROUPREQUEST: 'foursquare/join_group_request',
+    LEAVEGROUP: 'foursquare/leave_group',
+    COMMENTCANDIDATE: 'foursquare/comment_candidate',
+    ACCEPTGROUPREQUEST: 'foursquare/accept_group_request',
+    REJECTGROUPREQUEST: 'foursquare/reject_group_request',
+    SETPUSHTOKEN: 'foursquare/setpushnotification_token',
+    GETALLMEMBERS: 'foursquare/getAllMembers',
+	
+    LOGIN_URL: 'user/signin',
+    SEND_TWOSTEPVCODE: 'user/send_two_step_vcode',
+    VERIFY_TWOSTEPVCODE: 'user/verify_two_step_vcode',
+    UPDATE_URL: 'user/update_profile',
+    UPLOAD_PHOTO: 'user/upload_photo',
+    REGISTER_URL: 'user/signup',
+    RESETPASSWORD: 'user/reset_password',
+    SENDFEEDBACK: 'user/sendfeedback',
+    SEND_PHONEVERIFICAIONCODE: 'user/send_phone_verify_code',
+    VERIFY_PHONEVCODE: 'user/verify_phone_vcode'
 }

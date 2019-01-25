@@ -20,7 +20,7 @@ export default {
             marginTop: 30,
         }),
     },
-    avartarImg: {
+    avatarImg: {
         width: 70,
         height: 70,
         resizeMode: 'cover',
@@ -36,7 +36,7 @@ export default {
         marginTop: 8
     },
     emailTxt: {
-        fontSize: 15,
+        fontSize: 10,
         color: '#4a6187',
         fontFamily: "Lato-Regular",
         marginTop: 5
@@ -48,6 +48,7 @@ export default {
         paddingLeft: 40
     },
     logTxt: {
+        paddingBottom: 20,
         fontSize: 17,
         color: '#33e098',
     }

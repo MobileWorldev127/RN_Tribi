@@ -154,29 +154,7 @@ class welcome extends Component {
                             // PaginationComponent={Pagination}
                             paginationDefaultColor = "#4a6187"
                             paginationActiveColor = "#33e098"
-                            // paginationStyle = {{paddingBottom: 100, backgroundColor: 'yellow'}}
                         >
-
-                            {/* <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
-                                <View style={[styles.child]}>
-                                    <Image style={styles.tutorialImg} source={this.getImageForStep(0)} />
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
-                                <View style={[styles.child]}>
-                                    <Image style={styles.tutorialImg} source={this.getImageForStep(1)} />
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
-                                <View style={[styles.child]}>
-                                    <Image style={styles.tutorialImg} source={this.getImageForStep(2)} />
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
-                                <View style={[styles.child]}>
-                                    <Image style={styles.tutorialImg} source={this.getImageForStep(3)} />
-                                </View>
-                            </TouchableOpacity> */}
                             <View style={styles.child}>
                                 <Image style={styles.welcomeImg} source={images.welcomeStep1} />
                             </View>

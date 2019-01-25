@@ -9,6 +9,7 @@ import images from '../../../themes/images'
 import styles from './styles';
 import SwiperFlatList from 'react-native-swiper-flatlist';
 const { width, height } = Dimensions.get('window');
+// import Pagination from './Pagination';
 
 class welcome extends Component {
     constructor(props) {
@@ -97,6 +98,7 @@ class welcome extends Component {
         if (this.current_step!=3) return
 
         if (this.isIphoneX()) {
+
             x = x * this.rateVSXW();
             y = y * this.rateVSXH();
             const inWidth = x>71 && x<305;
@@ -140,13 +142,22 @@ class welcome extends Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Content>
-                    <View>
+                {/* <Content> */}
+                <Thumbnail
+                    square
+                    source={images.signUp_backgroundImage}
+                    style={styles.backgroundImg}
+                />
                         <SwiperFlatList
                             onMomentumScrollEnd = {(evt)=>{this.current_step = evt.index}}
+                            showPagination
+                            // PaginationComponent={Pagination}
+                            paginationDefaultColor = "#4a6187"
+                            paginationActiveColor = "#33e098"
+                            // paginationStyle = {{paddingBottom: 100, backgroundColor: 'yellow'}}
                         >
 
-                            <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
+                            {/* <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
                                 <View style={[styles.child]}>
                                     <Image style={styles.tutorialImg} source={this.getImageForStep(0)} />
                                 </View>
@@ -165,10 +176,21 @@ class welcome extends Component {
                                 <View style={[styles.child]}>
                                     <Image style={styles.tutorialImg} source={this.getImageForStep(3)} />
                                 </View>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
+                            <View style={styles.child}>
+                                <Image style={styles.welcomeImg} source={images.welcomeStep1} />
+                            </View>
+                            <View style={styles.child}>
+                                <Image style={styles.welcomeImg} source={images.welcomeStep2} />
+                            </View>
+                            <View style={styles.child}>
+                                <Image style={styles.welcomeImg} source={images.welcomeStep3} />
+                            </View>
+                            <View style={styles.child}>
+                                <Image style={styles.welcomeImg} source={images.welcomeStep4} />
+                            </View>
                         </SwiperFlatList>
-                    </View>
-                </Content>
+                {/* </Content> */}
             </Container>
         );
     }

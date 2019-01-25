@@ -111,7 +111,11 @@ const images = {
     tutorial4x: require('../assets/img/tutorial/tutorial-4-x.png'),
     tutorial5x: require('../assets/img/tutorial/tutorial-5-x.png'),
     tutorial6x: require('../assets/img/tutorial/tutorial-6-x.png'),
-    
+
+    welcomeStep1: require('../assets/img/tutorial/welcome_1.png'),
+    welcomeStep2: require('../assets/img/tutorial/welcome_2.png'),
+    welcomeStep3: require('../assets/img/tutorial/welcome_3.png'),
+    welcomeStep4: require('../assets/img/tutorial/welcome_4.png'),
 }
 
 

@@ -116,6 +116,7 @@ const images = {
     welcomeStep2: require('../assets/img/tutorial/welcome_2.png'),
     welcomeStep3: require('../assets/img/tutorial/welcome_3.png'),
     welcomeStep4: require('../assets/img/tutorial/welcome_4.png'),
+    welcome_backgroundImg: require('../assets/img/ic_tutorialBackground_img.png'),
 }
 
 

@@ -8,7 +8,6 @@ import {
 import images from '../../../themes/images'
 import styles from './styles';
 const { width, height } = Dimensions.get('window');
-import SwiperFlatList from 'react-native-swiper-flatlist';
 
 class tutorial extends Component {
     constructor(props) {

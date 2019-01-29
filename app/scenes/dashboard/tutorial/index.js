@@ -55,7 +55,13 @@ class tutorial extends Component {
     onLogin() {
         AsyncStorage.setItem('tutorial', "viewed");
         var { dispatch } = this.props;
-        dispatch(NavigationActions.navigate({ routeName: 'login' }));
+        // dispatch(NavigationActions.navigate({ routeName: 'login' }));
+        dispatch(
+            NavigationActions.navigate({
+                routeName: "tabbarView",
+                params: { index: 0 }
+            })
+        )
     }
     checkIfSkip(evt) {
         let x = evt.nativeEvent.locationX;

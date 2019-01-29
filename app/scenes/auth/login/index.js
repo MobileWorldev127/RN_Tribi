@@ -56,9 +56,6 @@ class login extends Component {
   }
 
   async componentWillMount() {
-    // var { dispatch } = this.props;
-    // dispatch(NavigationActions.navigate({routeName: 'privacy'}))
-    // return
     let tutorialViewed = await AsyncStorage.getItem("tutorial");
     AsyncStorage.getItem("user").then(res => {
       navigator.geolocation.getCurrentPosition(

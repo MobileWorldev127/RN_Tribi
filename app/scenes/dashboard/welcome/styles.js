@@ -1,3 +1,4 @@
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
@@ -86,7 +87,12 @@ export default{
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: 65,
+        ...ifIphoneX ({
+            bottom: 90,
+        },{
+            bottom: 65,
+        }),
+        
         left: width * .2
     },
     startTxt: {

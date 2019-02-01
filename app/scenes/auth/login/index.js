@@ -114,14 +114,14 @@ class login extends Component {
         },
         error => {
           console.log(error);
-          this.refs.errortoast.show(
-            `We can’t find you!
+          // this.refs.errortoast.show(
+          //   `We can’t find you!
 
-                    In order to find venues and events near you, Tribi needs your location.
+          //           In order to find venues and events near you, Tribi needs your location.
                     
-                    Go to Settings > Privacy > Location Services and switch Tribi to ON`,
-            DURATION.LENGTH_LONG
-          );
+          //           Go to Settings > Privacy > Location Services and switch Tribi to ON`,
+          //   DURATION.LENGTH_LONG
+          // );
         }
       );
     });

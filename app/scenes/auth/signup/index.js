@@ -3,14 +3,11 @@ import { connect } from "react-redux";
 import {
   Container,
   Content,
-  ody,
   Text,
   Thumbnail,
   Button,
-  Footer,
   View,
   Label,
-  Item,
   Input
 } from "native-base";
 import { NavigationActions } from "react-navigation";

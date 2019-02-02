@@ -114,14 +114,7 @@ class login extends Component {
         },
         error => {
           console.log(error);
-          // this.refs.errortoast.show(
-          //   `We can’t find you!
-
-          //           In order to find venues and events near you, Tribi needs your location.
-                    
-          //           Go to Settings > Privacy > Location Services and switch Tribi to ON`,
-          //   DURATION.LENGTH_LONG
-          // );
+          alert('We can’t find you!\n\nIn order to find venues and events near you, Tribi needs your location. \n\nGo to Settings > Privacy > Location Services and switch Tribi to ON')
         }
       );
     });
@@ -269,6 +262,7 @@ class login extends Component {
                     placeholderTextColor="#4a6187"
                     autoCapitalize="none"
                     autoCorrect={false}
+                    underlineColorAndroid = "transparent"
                   />
                   <View style={styles.line} />
                 </View>
@@ -290,6 +284,7 @@ class login extends Component {
                     placeholderTextColor="#4a6187"
                     autoCapitalize="none"
                     autoCorrect={false}
+                    underlineColorAndroid = "transparent"
                   />
                   <View style={styles.line} />
                 </View>
@@ -340,7 +335,7 @@ class login extends Component {
                 phone={this.state.phone}
               />
             </Modal>
-          </Content>{" "}
+          </Content>
           <Toast
             ref="successtoast"
             style={{ backgroundColor: "#35e49c" }}

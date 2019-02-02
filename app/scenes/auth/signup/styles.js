@@ -48,7 +48,7 @@ export default {
     paddingTop: 0,
     paddingBottom: 0,
     height: 40,
-    fontSize: 14
+    fontSize: 16
   },
   line: {
     // flex: 1,

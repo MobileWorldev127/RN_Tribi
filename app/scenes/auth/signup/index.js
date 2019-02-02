@@ -265,6 +265,7 @@ class signup extends Component {
                   placeholderTextColor="#4a6187"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  underlineColorAndroid = "transparent"
                 />
                 <View style={styles.line} />
               </View>
@@ -286,6 +287,7 @@ class signup extends Component {
                   placeholderTextColor="#4a6187"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  underlineColorAndroid = "transparent"
                 />
                 <View style={styles.line} />
               </View>
@@ -332,7 +334,7 @@ class signup extends Component {
                     </Button>
                   )}
                 </View>
-                <View style={styles.line} />}
+                <View style={styles.line} />
               </View>
             </View>
             <View style={styles.inputPasswordView}>
@@ -352,6 +354,7 @@ class signup extends Component {
                   placeholderTextColor="#4a6187"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  underlineColorAndroid = "transparent"
                 />
                 <View style={styles.line} />
               </View>
@@ -375,6 +378,7 @@ class signup extends Component {
                   placeholderTextColor="#4a6187"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  underlineColorAndroid = "transparent"
                 />
                 <View style={styles.line} />
               </View>
@@ -436,5 +440,6 @@ class signup extends Component {
     );
   }
 }
+
 
 export default connect()(signup);

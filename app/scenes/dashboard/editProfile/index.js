@@ -149,6 +149,7 @@ class editProfile extends Component {
               placeholderTextColor="#4a6187"
               autoCapitalize="none"
               autoCorrect={false}
+              underlineColorAndroid = "transparent"
             />
             <View style={styles.underline} />
           </View>
@@ -162,6 +163,7 @@ class editProfile extends Component {
               placeholderTextColor="#4a6187"
               autoCapitalize="none"
               autoCorrect={false}
+              underlineColorAndroid = "transparent"
             />
             <View style={styles.underline} />
           </View>
@@ -176,6 +178,7 @@ class editProfile extends Component {
               autoCapitalize="none"
               multiline={true}
               autoCorrect={false}
+              underlineColorAndroid = "transparent"
             />
             <View style={styles.underline} />
           </View>
@@ -190,6 +193,7 @@ class editProfile extends Component {
               placeholderTextColor="#4a6187"
               autoCapitalize="none"
               autoCorrect={false}
+              underlineColorAndroid = "transparent"
             />
             <View style={styles.underline} />
           </View>
@@ -204,6 +208,7 @@ class editProfile extends Component {
               placeholderTextColor="#4a6187"
               autoCapitalize="none"
               autoCorrect={false}
+              underlineColorAndroid = "transparent"
             />
             <View style={styles.underline} />
           </View>

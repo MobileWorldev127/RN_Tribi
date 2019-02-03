@@ -51,7 +51,6 @@ export default {
     fontSize: 16
   },
   line: {
-    // flex: 1,
     height: 2,
     backgroundColor: "white"
   },

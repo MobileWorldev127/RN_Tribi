@@ -48,7 +48,6 @@ export default{
         height: 44,
         resizeMode: 'cover',
         borderRadius: 22,
-        marginTop: 10,
         marginRight: 10
     },
     screentitle: {

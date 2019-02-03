@@ -90,6 +90,7 @@ class phoneVerifyModal extends Component {
             placeholderTextColor="#4a6187"
             autoCapitalize="none"
             autoCorrect={false}
+            underlineColorAndroid = "transparent"
           />
           <View style={styles.buttonInline}>
             <Button

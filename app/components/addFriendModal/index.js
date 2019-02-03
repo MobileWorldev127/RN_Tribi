@@ -232,6 +232,7 @@ class addFriendModal extends Component {
             placeholderTextColor="#4a6187"
             autoCapitalize="none"
             autoCorrect={false}
+            underlineColorAndroid = "transparent"
           />
           <ScrollView vertical={true} showsHorizontalScrollIndicator={false}>
             {this.state.contacts.map((item, index) => {

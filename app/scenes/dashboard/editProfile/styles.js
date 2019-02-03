@@ -45,9 +45,8 @@ export default{
     avatarImg: {
         width: 44,
         height: 44,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         borderRadius: 22,
-        marginTop: 10,
         marginRight: 10
     },
     screentitle: {
@@ -73,7 +72,7 @@ export default{
         fontFamily: "Lato-Regular",
         paddingTop: 0,
         paddingBottom: 0,
-        fontSize: 15,
+        fontSize: 16,
         marginTop: 5,
         marginLeft: 10
     },

@@ -98,7 +98,6 @@ class tutorial extends Component {
         let y = evt.nativeEvent.locationY;
         let inWidth, inHeight = false;
         if (this.isIphoneX()) {
-
             x = x * this.rateVSXW();
             y = y * this.rateVSXH();
             switch (this.state.current_step) {
@@ -151,43 +150,43 @@ class tutorial extends Component {
             y = y * this.rateVS6H();
             switch (this.state.current_step) {
                 case 0:
-                    inWidth = x > 76 && x < 125;
-                    inHeight = y > 62 && y < 89;
+                    inWidth = x > (Platform.OS == 'ios'? 76: 0) && x < (Platform.OS == 'ios'? 125:width);   
+                    inHeight = y > (Platform.OS == 'ios'? 62:0) && y < (Platform.OS == 'ios'? 89:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
                     break;
                 case 1:
-                    inWidth = x > 246 && x < 295;
-                    inHeight = y > 64 && y < 89;
+                    inWidth = x > (Platform.OS == 'ios'? 246:0) && x < (Platform.OS == 'ios'? 295:width);
+                    inHeight = y > (Platform.OS == 'ios'? 64:0) && y < (Platform.OS == 'ios'? 89:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
                     break;
                 case 2:
-                    inWidth = x > 25 && x < 86;
-                    inHeight = y > 271 && y < 299;
+                    inWidth = x > (Platform.OS == 'ios'? 25:0) && x < (Platform.OS == 'ios'? 86:width);
+                    inHeight = y > (Platform.OS == 'ios'? 271:0) && y < (Platform.OS == 'ios'? 299:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
                     break;
                 case 3:
-                    inWidth = x > 25 && x < 86;
-                    inHeight = y > 451 && y < 478;
+                    inWidth = x > (Platform.OS == 'ios'? 25:0) && x < (Platform.OS == 'ios'? 86:width);
+                    inHeight = y > (Platform.OS == 'ios'? 451:0) && y < (Platform.OS == 'ios'? 478:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
                     break;
                 case 4:
-                    inWidth = x > 148 && x < 201;
-                    inHeight = y > 548 && y < 576;
+                    inWidth = x > (Platform.OS == 'ios'? 148:0) && x < (Platform.OS == 'ios'? 201:width);
+                    inHeight = y > (Platform.OS == 'ios'? 548:0) && y < (Platform.OS == 'ios'? 576:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
                     break;
                 case 5:
-                    inWidth = x > 303 && x < 352;
-                    inHeight = y > 530 && y < 555;
+                    inWidth = x > (Platform.OS == 'ios'? 303:0) && x < (Platform.OS == 'ios'? 352:width);
+                    inHeight = y > (Platform.OS == 'ios'? 530:0) && y < (Platform.OS == 'ios'? 555:height);
                     if (inWidth && inHeight) {
                         this.nextStep();
                     }
@@ -221,16 +220,11 @@ class tutorial extends Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Content>
-                    <View style={styles.container}>
-                        <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
-                            <View style={[styles.child]}>
-                                <Image style={styles.tutorialImg} source={this.getImageForStep()} />
-                            </View>
-                        </TouchableOpacity>
+                <TouchableOpacity onPress={(evt) => this.handlePress(evt)} activeOpacity={1}>
+                    <View style={[styles.child]}>
+                        <Image style={styles.tutorialImg} source={this.getImageForStep()} />
                     </View>
-
-                </Content>
+                </TouchableOpacity>
             </Container>
         );
     }

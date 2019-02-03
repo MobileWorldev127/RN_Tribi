@@ -5,20 +5,14 @@ import {
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import { 
-    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView
+    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, StatusBar
 } from 'react-native';
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 import friendProfile from '../friendProfile/index';
 
-var searchList = [
-    {name: 'Joshua Francis', city: 'Toronto', avatar: images.ic_avatar1},
-    {name: 'Den Potapov', city: 'Kyiv', avatar: images.ic_avatar2},
-    {name: 'Joshua Francis', city: 'Toronto', avatar: images.ic_avatar1},
-    {name: 'Den Potapov', city: 'Kyiv', avatar: images.ic_avatar2},
-    {name: 'Joshua Francis', city: 'Toronto', avatar: images.ic_avatar1},
-]
+
 var Contacts = require('react-native-contacts')
 
 function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.apply(f,g))}var f=this,g=arguments;return clearTimeout(d),d=setTimeout(h,b),c&&!d&&(e=a.apply(f,g)),e}}
@@ -111,6 +105,7 @@ class accounts extends Component{
     render(){
         return (
             <View style={styles.container}>
+            <StatusBar barStyle="light-content" />
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
@@ -140,6 +135,7 @@ class accounts extends Component{
                             placeholderTextColor = "#4a6187"
                             autoCapitalize = 'none'
                             autoCorrect = {false}
+                            underlineColorAndroid = "transparent"
                         />
                     </View>
                     <View style = {styles.listView}>

@@ -153,8 +153,6 @@ class userProfile extends Component{
                     
                 </View>
 
-
-
                 <View style = {styles.tabView}>
                     <TouchableOpacity  onPress = {() => this.onHome()}>
                         <View style = {styles.tabBtn}>

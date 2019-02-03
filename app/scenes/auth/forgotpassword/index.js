@@ -74,6 +74,7 @@ class forgotpassword extends Component {
                   placeholderTextColor="#4a6187"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  underlineColorAndroid = "transparent"
                 />
                 <View style={styles.line} />
               </View>
@@ -101,7 +102,7 @@ class forgotpassword extends Component {
               <Label style={styles.label4}> Sign in</Label>
             </Button>
           </View>
-        </Content>{" "}
+        </Content>
         <Toast
           ref="errortoast"
           style={{ backgroundColor: "#f98192" }}

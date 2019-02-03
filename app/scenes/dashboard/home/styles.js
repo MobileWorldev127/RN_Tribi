@@ -39,10 +39,10 @@ export default{
     avatarImg: {
         width: 44,
         height: 44,
-        resizeMode: 'cover',
+        resizeMode: 'stretch',
         borderRadius: 22,
-        marginTop: 10,
-        marginRight: 10
+        marginTop: 0,
+        marginRight: 10,
     },
     popularTxt: {
         color: '#4a6187',

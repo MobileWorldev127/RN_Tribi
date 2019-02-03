@@ -37,7 +37,6 @@ export default{
         height: 44,
         resizeMode: 'cover',
         borderRadius: 22,
-        marginTop: 10,
         marginRight: 10
     },
     screentitle: {
@@ -112,5 +111,8 @@ export default{
         color: '#4a6187',
         fontSize: 12,
         fontFamily: "Lato-Regular",
+    },
+    loadingBar: {
+        marginTop: 100,
     }
 }

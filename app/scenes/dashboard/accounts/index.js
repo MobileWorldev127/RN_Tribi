@@ -5,7 +5,7 @@ import {
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import { 
-    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, StatusBar
+    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, StatusBar, PermissionsAndroid, Platform
 } from 'react-native';
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
@@ -13,7 +13,8 @@ import images from '../../../themes/images'
 import friendProfile from '../friendProfile/index';
 
 
-var Contacts = require('react-native-contacts')
+// var Contacts = require('react-native-contacts')
+import Contacts from 'react-native-contacts';
 
 function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.apply(f,g))}var f=this,g=arguments;return clearTimeout(d),d=setTimeout(h,b),c&&!d&&(e=a.apply(f,g)),e}}
 class accounts extends Component{
@@ -30,32 +31,66 @@ class accounts extends Component{
             isLoading: false,
 			contacts: []
         }
-        
     }
     
     componentWillMount() {
-		Contacts.getAll((err, contacts) => {
-          if (err) throw err;
+        Platform.OS == 'ios' ? this.getiOSContacts() : this.getAndroidContacts()
+    }
 
-          contacts.sort(function(a, b) { 
-            let aname = a.givenName + ' ' + a.familyName
-            let bname = b.givenName + ' ' + b.familyName
-            if (aname < bname) {
-                return -1;
-              }
-              if (aname > bname) {
-                return 1;
-              }
-            
-              // names must be equal
-              return 0;
+    getiOSContacts() {
+        Contacts.getAll((err, contacts) => {
+            if (err) {
+                throw err;
+            }
+            contacts.sort(function(a, b) { 
+                let aname = a.givenName + ' ' + a.familyName
+                let bname = b.givenName + ' ' + b.familyName
+                if (aname < bname) {
+                    return -1;
+                }
+                if (aname > bname) {
+                    return 1;
+                }
+                return 0;
+                })
+            console.log(contacts)
+            this.setState({
+                originalContact: contacts,
+                contacts: contacts
             })
-          console.log(contacts)
-		  this.setState({
-              originalContact: contacts,
-			  contacts: contacts
-		  })
-		})
+        })
+    }
+
+    getAndroidContacts(){
+        PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+            {
+                'title': 'Contacts',
+                'message': 'This app would like to view your contacts.'
+            }
+            ).then(() => {
+                Contacts.getAll((err, contacts) => {
+                if (err) {
+                    throw err;
+                }
+                contacts.sort(function(a, b) { 
+                let aname = a.givenName + ' ' + a.familyName
+                let bname = b.givenName + ' ' + b.familyName
+                if (aname < bname) {
+                    return -1;
+                    }
+                    if (aname > bname) {
+                    return 1;
+                    }
+                    return 0;
+                })
+                console.log(contacts)
+                this.setState({
+                    originalContact: contacts,
+                    contacts: contacts
+                })
+            })
+        })
     }
 
     onClickedFriendProfile(item){
@@ -76,7 +111,9 @@ class accounts extends Component{
         return(
             <TouchableOpacity onPress = {() => this.onClickedFriendProfile(item)} key = {index}>
                 <View style = {styles.rowView} >
-			{item.hasThumbnail?<Thumbnail square source = {{uri:image_str}} style = {styles.userImg}/>:<Thumbnail square source = {image_str} style = {styles.userImg}/>}
+			        {item.hasThumbnail?
+                        <Thumbnail square source = {{uri:image_str}} style = {styles.userImg}/>:
+                        <Thumbnail square source = {image_str} style = {styles.userImg}/>}
                     <View>
                         <Label style = {styles.nametxt}>{name_str}</Label>
                         <Label style = {styles.citytxt}>{city_str}</Label>
@@ -105,7 +142,7 @@ class accounts extends Component{
     render(){
         return (
             <View style={styles.container}>
-            <StatusBar barStyle="light-content" />
+                 <StatusBar barStyle="light-content" />
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
@@ -148,9 +185,9 @@ class accounts extends Component{
                 </Content>
             </View>
         );
-
     }
 }
+
 function mapStateToProp(state) {
     return {
         user: state.user.userInfo

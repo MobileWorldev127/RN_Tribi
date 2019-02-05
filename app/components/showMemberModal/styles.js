@@ -8,13 +8,13 @@ export default{
        width: width,
        height: height,
        alignItems: 'center',
-       justifyContent: 'flex-end',
+       justifyContent: 'center',
        backgroundColor: 'rgba(0, 0, 0, 0.6)',
        paddingBottom: 40,
     },
     modalMainView: {
         width: width - 50,
-        height: 380,
+        height: height/2,
         backgroundColor: 'white',
         paddingTop: 10
         // justifyContent: 'flex-end'
@@ -51,8 +51,6 @@ export default{
     rowView: {
         flex: 1,
         flexDirection: 'row',
-        // paddingTop: 25,
-        // paddingBottom: 25,
         paddingLeft: 15,
         paddingRight: 15,
         paddingBottom: 0,

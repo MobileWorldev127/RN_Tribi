@@ -70,16 +70,6 @@ class showMemberModal extends Component{
 
                     <View style = {styles.modalMainView}>  
                         <ScrollView vertical = {true} showsHorizontalScrollIndicator = {false} >
-                        {/* <TextInput
-                            ref = 'username'
-                            style = {styles.inputTxt}
-                            onChangeText = { text => this.onSearch(text)}
-                            value = {this.state.searchWord}
-                            placeholder = "Start typing"
-                            placeholderTextColor = "#4a6187"
-                            autoCapitalize = 'none'
-                            autoCorrect = {false}
-                        /> */}
                             {
                                 this.state.members.map((item, index) => {
                                     return( this.renderRow(item, index))

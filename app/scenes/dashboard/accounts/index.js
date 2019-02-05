@@ -12,7 +12,6 @@ import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 import friendProfile from '../friendProfile/index';
 
-
 // var Contacts = require('react-native-contacts')
 import Contacts from 'react-native-contacts';
 
@@ -77,12 +76,12 @@ class accounts extends Component{
                 let aname = a.givenName + ' ' + a.familyName
                 let bname = b.givenName + ' ' + b.familyName
                 if (aname < bname) {
-                    return -1;
-                    }
-                    if (aname > bname) {
+                return -1;
+                }
+                if (aname > bname) {
                     return 1;
-                    }
-                    return 0;
+                }
+                return 0;
                 })
                 console.log(contacts)
                 this.setState({

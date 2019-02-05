@@ -19,6 +19,14 @@ const { width, height } = Dimensions.get('window');
 function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.apply(f,g))}var f=this,g=arguments;return clearTimeout(d),d=setTimeout(h,b),c&&!d&&(e=a.apply(f,g)),e}}
 
 import { getVenueDetails,recommendVenue, getGroups } from '../../../actions'
+
+const initialRegion = {
+    latitude: -37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }
+
 class location extends Component{
     static navigationOptions = {
         header: null,
@@ -130,12 +138,15 @@ class location extends Component{
     }
 
     render(){
+        console.log('-->')
+        console.log(this.state.markers)
         return(
             <View style ={styles.container}>
                 <MapView
+                    showsUserLocation
                     ref={component => {this._map = component;}}
                     style={ styles.map }
-                    initialRegion={this.state.markers.length>0?this.state.markers[0].latlng:null}
+                    initialRegion={initialRegion}
                 >
                     {this.state.markers.map((marker, index) => (
                         <Marker

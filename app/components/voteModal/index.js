@@ -157,6 +157,7 @@ class voteModal extends Component {
                   }}
                   style={styles.textInput}
                   placeholder={"Type Comment"}
+                  underlineColorAndroid = "transparent"
                 />
               </View>
             </View>

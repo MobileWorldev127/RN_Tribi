@@ -59,6 +59,7 @@ export default{
         justifyContent: 'center',
         position: 'absolute',
         left: 0,
+        bottom: 0,
         backgroundColor: 'transparent'
     },
     tabBtn: {

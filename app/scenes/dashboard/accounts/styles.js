@@ -62,7 +62,7 @@ export default{
     searchBackgroundImg: {
         width: width,
         height: 109,
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         position: 'absolute',
         top: 0,
         left: 0,

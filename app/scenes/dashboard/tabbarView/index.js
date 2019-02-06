@@ -119,24 +119,6 @@ class tabbarView extends Component{
         
     }
 
-    // showTitle(){
-    //     if(this.state.isHome == true){
-    //         return(
-    //             <Label></Label>
-    //         )
-    //     }
-    //     else if(this.state.isFavorite){
-    //         return(
-    //             <Label style = {styles.screentitle}>FAVOURITES</Label>
-    //         )
-    //     }
-    //     else if(this.state.isAccount){
-    //         return(
-    //             <Label style = {styles.screentitle}>SEARCH</Label>
-    //         )
-    //     }
-    // }
-
     render() {
         return (
             <Container style = {styles.container}>

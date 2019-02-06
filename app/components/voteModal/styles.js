@@ -80,7 +80,8 @@ export default{
         alignItems: 'center',
         justifyContent: 'center',
         marginLeft: 25,
-        marginTop: 60,
+        marginTop: 40,
+        marginBottom: 20,
         backgroundColor: '#33e098'
     },
     voteTxt: {
@@ -109,7 +110,7 @@ export default{
         height: 38,
         resizeMode: 'cover',
         borderRadius: 19,
-        marginTop: -20,
+        // marginTop: -20,
     },
     label1: {
         color: '#4a6187',

@@ -146,6 +146,7 @@ class location extends Component{
                     showsUserLocation
                     ref={component => {this._map = component;}}
                     style={ styles.map }
+                    // initialRegion={this.state.markers.length>0?this.state.markers[0].latlng:null}
                     initialRegion={initialRegion}
                 >
                     {this.state.markers.map((marker, index) => (

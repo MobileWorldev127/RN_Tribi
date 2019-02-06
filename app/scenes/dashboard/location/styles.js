@@ -13,8 +13,6 @@ export default{
         // alignItems: 'center',
     },
     map: {
-        width: width,
-        height: height,
         position: 'absolute',
         top: 0,
         left: 0,

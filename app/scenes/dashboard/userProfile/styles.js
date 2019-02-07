@@ -61,18 +61,24 @@ export default{
             fontFamily: "Lato-Bold",
         }), 
     },
+    mainAboutView: {
+        width: width - 50,
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+    },
     aboutView: {
         backgroundColor: 'white',
         width: width - 50,
         borderRadius: 5,
         padding: 20,
+        paddingTop: 40,
         paddingLeft: 12,
         shadowColor: '#4a6187',
         shadowOffset: {width: 5, height: 5},
         shadowOpacity: 0.4,
         shadowRadius: 5,
         alignItems: 'center',
-        marginTop: 40
+        marginTop: 50
     },
     userName: {
         fontSize: 15,
@@ -94,18 +100,27 @@ export default{
         textAlign: 'center',
         marginBottom: 30
     },
+    userImageView: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        position: 'absolute',
+        top: 0,
+    },
     userImg: {
         width: 100,
         height: 100,
         resizeMode: 'cover',
-        borderRadius: 50,
-        marginTop: -70
+    },
+    editView: {
+        width: 63,
+        height: 63,
+        marginTop: -30
     },
     editImg: {
         width: 63,
         height: 63,
         resizeMode: 'contain',
-        marginTop: -30
     },
 
    tabView: {

@@ -96,25 +96,24 @@ class voteModal extends Component {
                 })}
               </View>
 
-              <View style={styles.aboutView}>
+              <View style = {styles.aboutView1}>
+                <View style={styles.aboutView}>
+                  <Label style={styles.label1}>{this.props.venue.venue_name}</Label>
+                  <Label style={styles.label1}>{this.props.venue.date}</Label>
+                </View>
                 <Thumbnail
                   square
                   source={{ uri: this.props.user.photo }}
                   style={styles.avatarImg}
                 />
-                <Label style={styles.label1}>
-                  {this.props.venue.venue_name}
-                </Label>
-                <Label style={styles.label1}>{this.props.venue.date}</Label>
-              </View>
-
-              <TouchableOpacity onPress={this.props.onClickVoteLocation}>
-                <Thumbnail
-                  square
-                  source={images.tab_location}
-                  style={styles.locationImg}
-                />
-              </TouchableOpacity>
+                <TouchableOpacity onPress={this.props.onClickVoteLocation} style = {styles.locationView}>
+                  <Thumbnail
+                    square
+                    source={images.tab_location}
+                    style={styles.locationImg}
+                  />
+                </TouchableOpacity>
+              </View>             
 
               <View style={styles.fingView}>
                 <TouchableOpacity

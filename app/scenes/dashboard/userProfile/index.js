@@ -119,9 +119,8 @@ class userProfile extends Component{
     render(){
         return (
             <View style={styles.container}>
-
-                    <Thumbnail square source = {images.ic_home_backgroundImage} 
-                        style = {styles.signInBackgroundImg}/>
+                <Thumbnail square source = {images.ic_home_backgroundImage} 
+                    style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>
                         <Button transparent onPress = {() =>{this.onBack()}}>
@@ -138,19 +137,21 @@ class userProfile extends Component{
                     </Right>
                 </Header>
                 <View style = {styles.mainContainer}>
-                    <View style = {styles.aboutView}>
-                        <TouchableOpacity onPress={this.openImagePicker}>
-                            <Thumbnail square source = {this.state.avatarSource} style = {styles.userImg} />  
-                        </TouchableOpacity>
-                        <Label style = {styles.userName}>{ this.props.user.username }</Label>
-                        <Label style = {styles.userCity}>{ this.props.user.location?this.props.user.location:'Undefined' }</Label>
-                        <Label style = {styles.userAbout}>{ this.props.user.description?this.props.user.description:'No description' }</Label>
-                        
+                    <View style = {styles.mainAboutView}>
+                            <View style = {styles.aboutView}>
+                                
+                                <Label style = {styles.userName}>{ this.props.user.username }</Label>
+                                <Label style = {styles.userCity}>{ this.props.user.location?this.props.user.location:'Undefined' }</Label>
+                                <Label style = {styles.userAbout}>{ this.props.user.description?this.props.user.description:'No description' }</Label>
+                                
+                            </View>
+                            <TouchableOpacity onPress={this.openImagePicker} style = {styles.userImageView}>
+                                    <Thumbnail square source = {this.state.avatarSource} style = {styles.userImg} />  
+                                </TouchableOpacity>
+                            <TouchableOpacity onPress = {() => this.onClickedProfileEdit()} style = {styles.editView}>
+                                <Thumbnail square source = {images.ic_userprofile_edit} style = {styles.editImg}/>
+                            </TouchableOpacity>
                     </View>
-                    <TouchableOpacity onPress = {() => this.onClickedProfileEdit()}>
-                        <Thumbnail square source = {images.ic_userprofile_edit} style = {styles.editImg}/>
-                    </TouchableOpacity>
-                    
                 </View>
 
                 <View style = {styles.tabView}>

@@ -96,37 +96,53 @@ export default{
     },
     aboutView: {
         width: width - 100,
-        paddingTop: 0,
-        paddingBottom: 30,
+        height: 110,
+        paddingTop: 20,
+        paddingBottom: 25,
         borderRadius: 20,
-        marginTop: 40,
+        marginTop: 20,
         borderWidth: 1.5,
         borderColor: '#33e098',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        overflow: 'hidden'
+    },
+    aboutView1: {
+        width: width - 100,
+        height: 160,
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        marginTop: 20
     },
     avatarImg: {
         width: 38,
         height: 38,
         resizeMode: 'cover',
         borderRadius: 19,
-        // marginTop: -20,
+        backgroundColor: 'white',
+        position: 'absolute',
+        top: 0,
     },
     label1: {
         color: '#4a6187',
         fontSize: 14,
         marginTop: 10
     },
+    locationView: {
+        width: 40,
+        height: 21,
+        backgroundColor: 'white',
+        marginTop: -12,
+    },
     locationImg: {
         width: 40,
         height: 21,
         resizeMode: 'contain',
         tintColor: '#33e098',
-        backgroundColor: 'white',
-        marginTop: -12
     },
     fingView: {
-        marginTop: 20,
+        marginTop: 0,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

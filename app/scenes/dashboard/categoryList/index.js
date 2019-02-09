@@ -13,12 +13,8 @@ import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
 import Switch from 'react-native-switch-pro'
 import {createGroup, getGroups} from '../../../actions'
-var categories = [
-    {name: 'Sport', icon: images.ic_sport, id: 69},
-    {name: 'Travel', icon: images.ic_travel, id: 17},
-    {name: 'Music', icon: images.ic_music, id: 20},
-    {name: 'Sport', icon: images.ic_sport, id: 69},
-]
+
+
 class categoryList extends Component{
     static navigationOptions = {
         header: null,

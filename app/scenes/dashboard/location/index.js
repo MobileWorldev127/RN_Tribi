@@ -73,9 +73,9 @@ class location extends Component{
                 latitude:this.state.markers[0].latlng.latitude,
                 longitude: this.state.markers[0].latlng.longitude,
                 latitudeDelta: 0.005,
-                longitudeDelta: 0.005
+                longitudeDelta: 0.005,
             }
-            this._map.animateToRegion(zoomto, 100);
+            // this._map.animateToRegion(zoomto, 100);
         }
     }
     onSearch = debounce(searchTerm => {
@@ -138,11 +138,9 @@ class location extends Component{
     }
 
     render(){
-        console.log('-->')
-        console.log(this.state.markers)
         return(
             <View style ={styles.container}>
-                <MapView
+                {/* <MapView
                     showsUserLocation
                     ref={component => {this._map = component;}}
                     style={ styles.map }
@@ -237,7 +235,16 @@ class location extends Component{
                     }}>
 
                     <RecommendGroup onClickedBack = {() => this.setState({ groupmodalVisible: false })} onClickedRecommend = {(params) => this.onClickedRecommend(params)}/>
-                </Modal>
+                </Modal> */}
+                <MapView
+                    style={ styles.map }
+                    region={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                />
 
             </View>
         )

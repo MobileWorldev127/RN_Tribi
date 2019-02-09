@@ -29,7 +29,7 @@ export default{
         resizeMode: 'cover',
         borderRadius: 17,
         marginTop:10,
-        // marginLeft: -10,
+        marginLeft: -10,
     },
     mainContainer: {
         width: width,

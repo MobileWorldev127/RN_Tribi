@@ -71,7 +71,7 @@ export default{
         width: width - 50,
         borderRadius: 5,
         padding: 20,
-        paddingTop: 40,
+        paddingTop: 50,
         paddingLeft: 12,
         shadowColor: '#4a6187',
         shadowOffset: {width: 5, height: 5},

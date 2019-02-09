@@ -1,16 +1,11 @@
 import { ifIphoneX } from 'react-native-iphone-x-helper'
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform, StatusBar } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default{
     container: {
         flex: 1,
         backgroundColor: 'transparent',
-        // ...ifIphoneX ({
-        //     paddingBottom: 60,
-        // },{
-        //     paddingBottom: 50,
-        // }),
     },
     signInBackgroundImg: {
         position: 'absolute',
@@ -22,19 +17,21 @@ export default{
     mainContainer: {
         width: width,
         padding: 30,
+        // flex: 1,
+        height: Platform.OS === "ios" ? height - StatusBar.currentHeight - 69 : height - StatusBar.currentHeight - 61,
         paddingBottom: 50,
-        flex: 1,
-        ...ifIphoneX ({
-            marginBottom: 50,
-        },{
-            marginBottom: 30,
-        }),
+        // ...ifIphoneX ({
+        //     marginBottom: 50,
+        // },{
+        //     marginBottom: 30,
+        // }),
+        backgroundColor: 'transparent'
     },
     header: {
         backgroundColor: 'transparent',
         elevation: 0,
         borderBottomWidth: 0,
-        marginTop: 5
+        marginTop: 5,
     },
     menuImg: {
         width: 22,
@@ -122,6 +119,7 @@ export default{
         height: 60,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'transparent'
     },
     tabIcon: {
         width: 22,

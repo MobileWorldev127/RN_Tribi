@@ -6,7 +6,7 @@ import {
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import { 
-    Alert, Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView, AppState, Platform
+    Alert, StatusBar, Keyboard, AsyncStorage, TextInput, TouchableOpacity, ScrollView, AppState, Platform
 } from 'react-native';
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
@@ -188,7 +188,6 @@ class home extends Component{
     render(){
         return (
             <View style={styles.container}>
-
                 <PushController />
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>

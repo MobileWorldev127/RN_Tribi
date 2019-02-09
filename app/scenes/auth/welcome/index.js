@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    Container, Content, ody, Text, Thumbnail, Button, Footer, View, Label, Item, Input
+    Container, Content,  Text, Thumbnail, Button, Footer, View, Label, Item, Input
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import { 
-    Animated, Keyboard, AsyncStorage, TextInput, TouchableOpacity
+    StatusBar, Keyboard, AsyncStorage, TextInput, TouchableOpacity
 } from 'react-native';
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'

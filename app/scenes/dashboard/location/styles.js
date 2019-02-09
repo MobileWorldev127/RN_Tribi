@@ -1,5 +1,5 @@
 import { ifIphoneX } from 'react-native-iphone-x-helper'
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default{
@@ -18,6 +18,7 @@ export default{
         left: 0,
         right: 0,
         bottom: 0,
+        ...StyleSheet.absoluteFillObject
     },
     header: {
         backgroundColor: 'transparent',

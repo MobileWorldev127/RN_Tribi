@@ -1,6 +1,6 @@
-import { Body, Button, Header, Label, Left, Right, Thumbnail, View } from "native-base";
+import { Body, Button, Header, Label, Left, Right, Thumbnail, View, Container, Content, Footer, FooterTab } from "native-base";
 import React, { Component } from "react";
-import { Dimensions, TextInput, TouchableOpacity } from "react-native";
+import { Dimensions, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import Toast, { DURATION } from "react-native-easy-toast";
 import { NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
@@ -109,7 +109,7 @@ class editProfile extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <Container style={styles.container}>
         <Thumbnail
           square
           source={images.ic_home_backgroundImage}
@@ -138,177 +138,181 @@ class editProfile extends Component {
             </Button>
           </Right>
         </Header>
-        <View style={styles.mainContainer}>
-          <View>
-            <Label style={styles.usernametxt}>NAME</Label>
-            <TextInput
-              style={styles.inputTxt}
-              onChangeText={text => this.setState({ username: text })}
-              value={this.state.username}
-              placeholder="Name"
-              placeholderTextColor="#4a6187"
-              autoCapitalize="none"
-              autoCorrect={false}
-              underlineColorAndroid = "transparent"
-            />
-            <View style={styles.underline} />
-          </View>
-          <View style={{ marginTop: 30 }}>
-            <Label style={styles.usernametxt}>LOCATION</Label>
-            <TextInput
-              style={styles.inputTxt}
-              onChangeText={text => this.setState({ location: text })}
-              value={this.state.location}
-              placeholder="Location"
-              placeholderTextColor="#4a6187"
-              autoCapitalize="none"
-              autoCorrect={false}
-              underlineColorAndroid = "transparent"
-            />
-            <View style={styles.underline} />
-          </View>
-          <View style={{ marginTop: 30 }}>
-            <Label style={styles.usernametxt}>BIO</Label>
-            <TextInput
-              style={styles.inputTxt}
-              onChangeText={text => this.setState({ description: text })}
-              value={this.state.description}
-              placeholder="Description"
-              placeholderTextColor="#4a6187"
-              autoCapitalize="none"
-              multiline={true}
-              autoCorrect={false}
-              underlineColorAndroid = "transparent"
-            />
-            <View style={styles.underline} />
-          </View>
-          <View style={{ marginTop: 30 }}>
-            <Label style={styles.usernametxt}>Password</Label>
-            <TextInput
-              style={styles.inputTxt}
-              onChangeText={text => this.setState({ password: text })}
-              value={this.state.password}
-              placeholder="Password"
-              secureTextEntry
-              placeholderTextColor="#4a6187"
-              autoCapitalize="none"
-              autoCorrect={false}
-              underlineColorAndroid = "transparent"
-            />
-            <View style={styles.underline} />
-          </View>
-          <View style={{ marginTop: 30 }}>
-            <Label style={styles.usernametxt}>Password Confirm</Label>
-            <TextInput
-              style={styles.inputTxt}
-              onChangeText={text => this.setState({ passconfirm: text })}
-              value={this.state.passconfirm}
-              secureTextEntry
-              placeholder="Confirm password"
-              placeholderTextColor="#4a6187"
-              autoCapitalize="none"
-              autoCorrect={false}
-              underlineColorAndroid = "transparent"
-            />
-            <View style={styles.underline} />
-          </View>
-          <Button
-            transparent
-            style={{ marginTop: 40 }}
-            onPress={() => this.onSaveChanges()}
-          >
-            <View style={styles.saveView}>
-              <Label style={styles.saveTxt}>SAVE CHANGES</Label>
-            </View>
-          </Button>
-        </View>
 
-        <View style={styles.tabView}>
-          <TouchableOpacity onPress={() => this.onHome()}>
-            <View style={styles.tabBtn}>
-              <Thumbnail
-                square
-                source={images.tab_home}
-                style={[
-                  styles.tabIcon,
-                  { tintColor: this.state.isHome ? "#33e098" : null }
-                ]}
+        <Content>
+          <View style={styles.mainContainer}>
+            <View>
+              <Label style={styles.usernametxt}>NAME</Label>
+              <TextInput
+                style={styles.inputTxt}
+                onChangeText={text => this.setState({ username: text })}
+                value={this.state.username}
+                placeholder="Name"
+                placeholderTextColor="#4a6187"
+                autoCapitalize="none"
+                autoCorrect={false}
+                underlineColorAndroid = "transparent"
               />
-              <Thumbnail
-                square
-                source={images.tab_backgroundImage}
-                style={
-                  this.state.isHome
-                    ? styles.tabBackgroundImg
-                    : styles.tabBackgroundImg1
-                }
-              />
+              <View style={styles.underline} />
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.onFavorite()}>
-            <View style={styles.tabBtn}>
-              <Thumbnail
-                square
-                source={images.tab_favorite}
-                style={[
-                  styles.tabIcon,
-                  { tintColor: this.state.isFavorite ? "#33e098" : null }
-                ]}
+            <View style={{ marginTop: 30 }}>
+              <Label style={styles.usernametxt}>LOCATION</Label>
+              <TextInput
+                style={styles.inputTxt}
+                onChangeText={text => this.setState({ location: text })}
+                value={this.state.location}
+                placeholder="Location"
+                placeholderTextColor="#4a6187"
+                autoCapitalize="none"
+                autoCorrect={false}
+                underlineColorAndroid = "transparent"
               />
-              <Thumbnail
-                square
-                source={images.tab_backgroundImage}
-                style={
-                  this.state.isFavorite
-                    ? styles.tabBackgroundImg
-                    : styles.tabBackgroundImg1
-                }
-              />
+              <View style={styles.underline} />
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.onAccount()}>
-            <View style={styles.tabBtn}>
-              <Thumbnail
-                square
-                source={images.tab_account}
-                style={[
-                  styles.tabIcon,
-                  { tintColor: this.state.isAccount ? "#33e098" : null }
-                ]}
+            <View style={{ marginTop: 30 }}>
+              <Label style={styles.usernametxt}>BIO</Label>
+              <TextInput
+                style={styles.inputTxt}
+                onChangeText={text => this.setState({ description: text })}
+                value={this.state.description}
+                placeholder="Description"
+                placeholderTextColor="#4a6187"
+                autoCapitalize="none"
+                multiline={true}
+                autoCorrect={false}
+                underlineColorAndroid = "transparent"
               />
-              <Thumbnail
-                square
-                source={images.tab_backgroundImage}
-                style={
-                  this.state.isAccount
-                    ? styles.tabBackgroundImg
-                    : styles.tabBackgroundImg1
-                }
-              />
+              <View style={styles.underline} />
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.onLocation()}>
-            <View style={styles.tabBtn}>
-              <Thumbnail
-                square
-                source={images.tab_location}
-                style={[
-                  styles.tabIcon,
-                  { tintColor: this.state.isLocation ? "#33e098" : null }
-                ]}
+            <View style={{ marginTop: 30 }}>
+              <Label style={styles.usernametxt}>Password</Label>
+              <TextInput
+                style={styles.inputTxt}
+                onChangeText={text => this.setState({ password: text })}
+                value={this.state.password}
+                placeholder="Password"
+                secureTextEntry
+                placeholderTextColor="#4a6187"
+                autoCapitalize="none"
+                autoCorrect={false}
+                underlineColorAndroid = "transparent"
               />
-              <Thumbnail
-                square
-                source={images.tab_backgroundImage}
-                style={
-                  this.state.isLocation
-                    ? styles.tabBackgroundImg
-                    : styles.tabBackgroundImg1
-                }
-              />
+              <View style={styles.underline} />
             </View>
-          </TouchableOpacity>
-        </View>
+            <View style={{ marginTop: 30 }}>
+              <Label style={styles.usernametxt}>Password Confirm</Label>
+              <TextInput
+                style={styles.inputTxt}
+                onChangeText={text => this.setState({ passconfirm: text })}
+                value={this.state.passconfirm}
+                secureTextEntry
+                placeholder="Confirm password"
+                placeholderTextColor="#4a6187"
+                autoCapitalize="none"
+                autoCorrect={false}
+                underlineColorAndroid = "transparent"
+              />
+              <View style={styles.underline} />
+            </View>
+            <Button
+              transparent
+              style={{ marginTop: 40 }}
+              onPress={() => this.onSaveChanges()}
+            >
+              <View style={styles.saveView}>
+                <Label style={styles.saveTxt}>SAVE CHANGES</Label>
+              </View>
+            </Button>
+          </View>
+          
+
+          <View style={styles.tabView}>
+            <TouchableOpacity onPress={() => this.onHome()}>
+              <View style={styles.tabBtn}>
+                <Thumbnail
+                  square
+                  source={images.tab_home}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: this.state.isHome ? "#33e098" : null }
+                  ]}
+                />
+                <Thumbnail
+                  square
+                  source={images.tab_backgroundImage}
+                  style={
+                    this.state.isHome
+                      ? styles.tabBackgroundImg
+                      : styles.tabBackgroundImg1
+                  }
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onFavorite()}>
+              <View style={styles.tabBtn}>
+                <Thumbnail
+                  square
+                  source={images.tab_favorite}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: this.state.isFavorite ? "#33e098" : null }
+                  ]}
+                />
+                <Thumbnail
+                  square
+                  source={images.tab_backgroundImage}
+                  style={
+                    this.state.isFavorite
+                      ? styles.tabBackgroundImg
+                      : styles.tabBackgroundImg1
+                  }
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onAccount()}>
+              <View style={styles.tabBtn}>
+                <Thumbnail
+                  square
+                  source={images.tab_account}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: this.state.isAccount ? "#33e098" : null }
+                  ]}
+                />
+                <Thumbnail
+                  square
+                  source={images.tab_backgroundImage}
+                  style={
+                    this.state.isAccount
+                      ? styles.tabBackgroundImg
+                      : styles.tabBackgroundImg1
+                  }
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onLocation()}>
+              <View style={styles.tabBtn}>
+                <Thumbnail
+                  square
+                  source={images.tab_location}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: this.state.isLocation ? "#33e098" : null }
+                  ]}
+                />
+                <Thumbnail
+                  square
+                  source={images.tab_backgroundImage}
+                  style={
+                    this.state.isLocation
+                      ? styles.tabBackgroundImg
+                      : styles.tabBackgroundImg1
+                  }
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+          </Content>
         <Toast
           ref="toast"
           style={{ backgroundColor: "#35e49c" }}
@@ -327,7 +331,7 @@ class editProfile extends Component {
           opacity={1}
           textStyle={{ color: "white" }}
         />
-      </View>
+      </Container>
     );
   }
 }

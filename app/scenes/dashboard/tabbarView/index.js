@@ -122,7 +122,6 @@ class tabbarView extends Component{
     render() {
         return (
             <Container style = {styles.container}>
-                <StatusBar barStyle="light-content" />
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 { this.showMainView() }
                 

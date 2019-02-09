@@ -1,4 +1,4 @@
-import { Body, Button, Header, Label, Left, Right, Thumbnail, View } from "native-base";
+import { Body, Button, Header, Label, Left, Right, Thumbnail, View, Content } from "native-base";
 import React, { Component } from "react";
 import { Dimensions, TextInput, TouchableOpacity } from "react-native";
 import Toast, { DURATION } from "react-native-easy-toast";
@@ -147,6 +147,7 @@ class newGroup extends Component {
             </Button>
           </Right>
         </Header>
+        <Content>
         <View style={styles.mainContainer} showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <View>
@@ -163,26 +164,11 @@ class newGroup extends Component {
                 underlineColorAndroid = "transparent"
               />
               <View style={styles.underline} />
-              {/* <View>
-                                    <Label style = {styles.friendtxt}>FRIENDS</Label>
-                                        <View style = {styles.friendsubView}>
-                                            <Label style = {styles.friendTxt} >Den Potapov</Label>
-                                            <TouchableOpacity>
-                                                <Thumbnail source = {images.ic_friend_add} style = {styles.addfriendImg}/>
-                                            </TouchableOpacity>
-                                        </View>
-                                    <View style = {styles.underline}/>
-								</View> */}
+
             </View>
 
             <View>
               <Label style={styles.notificationtxt}>Setting</Label>
-              {/* <View style = {styles.emailsubView}>
-                                    <Label style = {styles.friendTxt}>Email Notifications</Label>
-                                    <Switch
-                                        value={this.state.emailValue}
-                                    />
-                                </View> */}
               <View style={styles.underline} />
               <View style={styles.emailsubView}>
                 <Label style={styles.friendTxt}>
@@ -198,7 +184,7 @@ class newGroup extends Component {
               <View style={styles.underline} />
             </View>
           </View>
-
+          
           <Button
             transparent
             onPress={() => this.onCreate()}
@@ -294,6 +280,7 @@ class newGroup extends Component {
             </TouchableOpacity>
           </View>
         </View>
+        </Content>
         <Toast
           ref="errortoast"
           style={{ backgroundColor: "#f98192" }}

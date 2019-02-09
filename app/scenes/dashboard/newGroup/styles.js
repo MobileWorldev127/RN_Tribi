@@ -1,16 +1,11 @@
 import { ifIphoneX } from 'react-native-iphone-x-helper'
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform, StatusBar } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default{
     container: {
         flex: 1,
         backgroundColor: 'transparent',
-        // ...ifIphoneX ({
-        //     paddingBottom: 60,
-        // },{
-        //     paddingBottom: 50,
-        // }),
     },
     signInBackgroundImg: {
         position: 'absolute',
@@ -49,22 +44,24 @@ export default{
         }),  
     },
     mainContainer: {
-        flex: 1,
+        // flex: 1,
         width: width,
+        height: Platform.OS === "ios" ? height - StatusBar.currentHeight - 69 : height - StatusBar.currentHeight - 61,
         padding: 25,
         paddingBottom: 50,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: 'transparent'
     },
     generaltxt: {
         color: '#33e098',
-        fontSize: 15,
+        fontSize: 17,
         marginLeft: 10,
         marginTop:  10,
         fontFamily: "Lato-Regular",
     },
     nametxt: {
         color: '#4a6187',
-        fontSize: 10,
+        fontSize: 13,
         marginTop: 15,
         marginLeft: 10,
         fontFamily: "Lato-Regular",
@@ -87,7 +84,7 @@ export default{
     },
     friendtxt: {
         color: '#4a6187',
-        fontSize: 10,
+        fontSize: 12,
         marginTop: 20,
         marginLeft: 10,
         fontFamily: "Lato-Regular",
@@ -113,7 +110,7 @@ export default{
     },
     notificationtxt: {
         color: '#33e098',
-        fontSize: 15,
+        fontSize: 17,
         marginLeft: 10,
         marginTop:  50,
         fontFamily: "Lato-Regular",
@@ -141,12 +138,6 @@ export default{
        color: 'white',
        fontFamily: "Lato-Regular",
    },
-
-
-
-
-
-
 
    tabView: {
         width: width,

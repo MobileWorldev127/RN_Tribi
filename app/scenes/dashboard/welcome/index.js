@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, Image, StyleSheet, AsyncStorage, Platform, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StyleSheet, AsyncStorage, Platform, TouchableOpacity, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import {
@@ -8,6 +8,7 @@ import {
 import images from '../../../themes/images'
 import styles from './styles';
 import Swiper from 'react-native-swiper';
+
 const { width, height } = Dimensions.get('window');
 
 class welcome extends Component {
@@ -32,6 +33,7 @@ class welcome extends Component {
             }
         })
     }
+
     onLogin() {
         AsyncStorage.setItem('step', "viewed");
         var { dispatch } = this.props;

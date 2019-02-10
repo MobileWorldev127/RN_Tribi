@@ -17,14 +17,15 @@ export default{
     mainContainer: {
         width: width,
         padding: 30,
+        paddingBottom: 0,
         // flex: 1,
         height: Platform.OS === "ios" ? height - StatusBar.currentHeight - 69 : height - StatusBar.currentHeight - 61,
         paddingBottom: 50,
-        // ...ifIphoneX ({
-        //     marginBottom: 50,
-        // },{
-        //     marginBottom: 30,
-        // }),
+        ...ifIphoneX ({
+            marginBottom: 50,
+        },{
+            marginBottom: 30,
+        }),
         backgroundColor: 'transparent'
     },
     header: {

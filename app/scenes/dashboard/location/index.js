@@ -11,7 +11,7 @@ import {
 import styles from './styles';
 import { BallIndicator } from 'react-native-indicators'
 import images from '../../../themes/images'
-import MapView,  { Marker } from 'react-native-maps';
+import MapView,  { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import RecommendModal from '../../../components/recommendModal'
 import RecommendGroup from '../../../components/recommendGroup'
 import Toast, {DURATION} from 'react-native-easy-toast'
@@ -237,6 +237,7 @@ class location extends Component{
                     <RecommendGroup onClickedBack = {() => this.setState({ groupmodalVisible: false })} onClickedRecommend = {(params) => this.onClickedRecommend(params)}/>
                 </Modal> */}
                 <MapView
+                    provider={PROVIDER_GOOGLE}
                     style={ styles.map }
                     region={{
                         latitude: 37.78825,

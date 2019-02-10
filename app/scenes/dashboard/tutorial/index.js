@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, Image, StyleSheet, AsyncStorage, Platform, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StyleSheet, AsyncStorage, Platform, TouchableOpacity, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import {

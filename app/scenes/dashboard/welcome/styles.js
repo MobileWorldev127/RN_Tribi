@@ -1,5 +1,5 @@
 import { ifIphoneX } from 'react-native-iphone-x-helper'
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default{
@@ -54,7 +54,7 @@ export default{
         marginLeft: 4, 
         marginRight: 4, 
         marginTop: 4, 
-        marginBottom: 14,
+        marginBottom: Platform.OS === 'ios'? 14 : 5,
         shadowOpacity: 0.9,
         shadowRadius: 6,
         shadowColor: '#33e098',
@@ -68,13 +68,12 @@ export default{
         marginLeft: 4, 
         marginRight: 4, 
         marginTop: 4, 
-        marginBottom: 14,
+        marginBottom: Platform.OS === 'ios'? 14 : 5,
     },
     skipBtn: {
         position: 'absolute',
-        top: 50,
-        right: 50
-        // backgroundColor: 'red'
+        top: Platform.OS === 'ios'? 50 : 35,
+        right: Platform.OS === 'ios'? 50 : 40,
     },
     skipTxt: {
         color: '#33e098',
@@ -90,7 +89,7 @@ export default{
         ...ifIphoneX ({
             bottom: 90,
         },{
-            bottom: 65,
+            bottom: Platform.OS === 'ios'? 65 : 50,
         }),
         
         left: width * .2

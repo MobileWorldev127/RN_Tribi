@@ -141,7 +141,6 @@ class accounts extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="light-content" />
                 <Thumbnail square source = {images.ic_home_backgroundImage} style = {styles.signInBackgroundImg}/>
                 <Header style = {styles.header}>
                     <Left>

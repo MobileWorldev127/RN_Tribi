@@ -20,12 +20,21 @@ function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.a
 
 import { getVenueDetails,recommendVenue, getGroups } from '../../../actions'
 
-const initialRegion = {
-    latitude: -37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  }
+const initialRegion = [{
+    latitude: 65.96941622030407,
+    longitude: -18.527304853582418,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  }, 
+  {
+    latitude: 65.970166,
+    longitude: -18.528418,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  }]
+
+const LATITUDE_DELTA = 0.01;
+const LONGITUDE_DELTA = 0.01;
 
 class location extends Component{
     static navigationOptions = {
@@ -49,33 +58,49 @@ class location extends Component{
     componentWillMount() {
         if(this.props.navigation.state.params.isModal){
             this.setState({ isLoading: true })
-                getVenueDetails(this.props.venues[0].id).then((res)=>{
-                    if (res.success) {
-                        this.setState({ isLoading: false })
-                        this.setState({
-                            modalVisible: true,
-                            selected_venue : res.data
-                        })   
-                    } else {
-                        this.setState({ isLoading: false })
-                        this.refs.errortoast.show(res.error.message, DURATION.LENGTH_LONG)
-                    }  
-                }) 
+            getVenueDetails(this.props.venues[0].id).then((res)=>{
+                if (res.success) {
+                    this.setState({ isLoading: false })
+                    this.setState({
+                        modalVisible: true,
+                        selected_venue : res.data
+                    })   
+                } else {
+                    this.setState({ isLoading: false })
+                    this.refs.errortoast.show(res.error.message, DURATION.LENGTH_LONG)
+                }  
+            }) 
         }
+
+        var venesList = []
+
+        this.props.venues.map((item) =>{
+            let region = {
+                latitude: item.latlng.latitude,
+                longitude: item.latlng.longitude,
+                latitudeDelta: LONGITUDE_DELTA,
+                longitudeDelta: LONGITUDE_DELTA,
+            }
+            venesList.push({
+                id: item.id,
+                name: item.name,
+                region: region})
+        })
+
         this.setState({
-            originalMarkers: this.props.venues,
-            markers: this.props.venues
+            originalMarkers: venesList,
+            markers: venesList
         })
     }
     componentDidMount() {
         if (this.state.markers.length>0) {
             let zoomto = {
-                latitude:this.state.markers[0].latlng.latitude,
-                longitude: this.state.markers[0].latlng.longitude,
-                latitudeDelta: 0.005,
-                longitudeDelta: 0.005,
+                latitude:this.state.markers[0].region.latitude,
+                longitude: this.state.markers[0].region.longitude,
+                latitudeDelta: LONGITUDE_DELTA,
+                longitudeDelta: LONGITUDE_DELTA,
             }
-            // this._map.animateToRegion(zoomto, 100);
+            this._map.animateToRegion(zoomto, 100);
         }
     }
     onSearch = debounce(searchTerm => {
@@ -88,15 +113,15 @@ class location extends Component{
             markers: filteredMarkers
         })
     }, 300)
+
     onClickMarker(id){
-        this.setState({ isLoading: true })
         getVenueDetails(id).then((res)=>{
             if (res.success) {
                 this.setState({ isLoading: false })
                 this.setState({
                     modalVisible: true,
                     selected_venue : res.data
-                })   
+                })
             } else {
                 this.setState({ isLoading: false })
                 this.refs.errortoast.show(res.error.message, DURATION.LENGTH_LONG)
@@ -140,18 +165,17 @@ class location extends Component{
     render(){
         return(
             <View style ={styles.container}>
-                {/* <MapView
+                <MapView
                     showsUserLocation
                     ref={component => {this._map = component;}}
                     style={ styles.map }
-                    // initialRegion={this.state.markers.length>0?this.state.markers[0].latlng:null}
-                    initialRegion={initialRegion}
+                    region={this.state.markers[0].region}
                 >
                     {this.state.markers.map((marker, index) => (
                         <Marker
                             key = {index}
                             onPress={() => this.onClickMarker(marker.id) }
-                            coordinate={marker.latlng}
+                            coordinate={{latitude: marker.region.latitude, longitude: marker.region.longitude}}
                             image={images.ic_location_pin}
                         />
                     ))}
@@ -222,7 +246,9 @@ class location extends Component{
                         
                     }}>
 
-                    <RecommendModal venue = {this.state.selected_venue} onClickedBack = {() => this.setState({ modalVisible: false })} onRecommend = {() => this.setState({ modalVisible: false, groupmodalVisible: true })}/>
+                    <RecommendModal venue = {this.state.selected_venue} 
+                        onClickedBack = {() => this.setState({ modalVisible: false })} 
+                        onRecommend = {() => this.setState({ modalVisible: false, groupmodalVisible: true })}/>
                 </Modal>
 
                 <Modal
@@ -234,18 +260,9 @@ class location extends Component{
                         
                     }}>
 
-                    <RecommendGroup onClickedBack = {() => this.setState({ groupmodalVisible: false })} onClickedRecommend = {(params) => this.onClickedRecommend(params)}/>
-                </Modal> */}
-                <MapView
-                    provider={PROVIDER_GOOGLE}
-                    style={ styles.map }
-                    region={{
-                        latitude: 37.78825,
-                        longitude: -122.4324,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421,
-                    }}
-                />
+                    <RecommendGroup onClickedBack = {() => this.setState({ groupmodalVisible: false })} 
+                        onClickedRecommend = {(params) => this.onClickedRecommend(params)}/>
+                </Modal>
 
             </View>
         )

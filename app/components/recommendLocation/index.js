@@ -135,7 +135,7 @@ class recommendLocation extends Component {
               );
             })}
           </ScrollView>
-        </View>{" "}
+        </View>
         <Toast
           ref="errortoast"
           style={{ backgroundColor: "#f98192" }}

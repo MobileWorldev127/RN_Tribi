@@ -59,11 +59,6 @@ class recommendModal extends Component{
     }  
 
     onFavorite() {
-        // if(!this.state.isfavorite){
-//             this.refs.toast.show('Added to Favourites', DURATION.LENGTH_LONG)
-//         }else{
-//             this.refs.toast.show('Removed From Favourites', DURATION.LENGTH_LONG)
-//         }
         let user_id = this.props.userInfo._id
 		let venue_id = this.props.venue.id
 		var { dispatch } = this.props;

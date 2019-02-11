@@ -155,7 +155,7 @@ class editProfile extends Component {
               />
               <View style={styles.underline} />
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 25 }}>
               <Label style={styles.usernametxt}>LOCATION</Label>
               <TextInput
                 style={styles.inputTxt}
@@ -169,7 +169,7 @@ class editProfile extends Component {
               />
               <View style={styles.underline} />
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 25 }}>
               <Label style={styles.usernametxt}>BIO</Label>
               <TextInput
                 style={styles.inputTxt}
@@ -184,7 +184,7 @@ class editProfile extends Component {
               />
               <View style={styles.underline} />
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 25 }}>
               <Label style={styles.usernametxt}>Password</Label>
               <TextInput
                 style={styles.inputTxt}
@@ -199,7 +199,7 @@ class editProfile extends Component {
               />
               <View style={styles.underline} />
             </View>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 25 }}>
               <Label style={styles.usernametxt}>Password Confirm</Label>
               <TextInput
                 style={styles.inputTxt}
@@ -225,7 +225,6 @@ class editProfile extends Component {
             </Button>
           </View>
           
-
           <View style={styles.tabView}>
             <TouchableOpacity onPress={() => this.onHome()}>
               <View style={styles.tabBtn}>

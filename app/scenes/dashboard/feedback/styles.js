@@ -53,12 +53,18 @@ export default{
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     textInput: {
-        width: width,
+        width: width - 70,
         height: 100,
         marginTop:20,
-        padding: 35
+        marginBottom: 20,
+        padding: 5,
+        borderBottomWidth: 1,
+        borderColor: '#33e098',
+        fontSize: 16,
+        lineHeight: 30
     },
     searchBackgroundImg: {
         width: width,
@@ -135,8 +141,7 @@ export default{
         backgroundColor: 'white',
     },
     button: {
-        paddingLeft: 35,
-        paddingRight: -35,
-        paddingBottom: 35
+        padding: 35
+
     }
 }

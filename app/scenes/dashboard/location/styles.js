@@ -4,21 +4,19 @@ const { width, height } = Dimensions.get('window');
 
 export default{
     container: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        // position: 'absolute',
+        // top: 0,
+        // left: 0,
+        // right: 0,
+        // bottom: 0,
+        flex: 1,
         justifyContent: 'flex-start',
-        // alignItems: 'center',
     },
     map: {
         position: 'absolute',
         top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        ...StyleSheet.absoluteFillObject
+        width: width, 
+        height: height,
     },
     header: {
         backgroundColor: 'transparent',

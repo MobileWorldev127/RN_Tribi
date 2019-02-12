@@ -20,19 +20,6 @@ function debounce(a,b,c){var d,e;return function(){function h(){d=null,c||(e=a.a
 
 import { getVenueDetails,recommendVenue, getGroups } from '../../../actions'
 
-const initialRegion = [{
-    latitude: 65.96941622030407,
-    longitude: -18.527304853582418,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  }, 
-  {
-    latitude: 65.970166,
-    longitude: -18.528418,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  }]
-
 const LATITUDE_DELTA = 0.01;
 const LONGITUDE_DELTA = 0.01;
 
@@ -45,6 +32,7 @@ class location extends Component{
     constructor(props){
         super(props);
         this.state = {
+            isMapReady: false,
             modalVisible: false,
             groupmodalVisible: false,
             searchWord: '',
@@ -73,7 +61,6 @@ class location extends Component{
         }
 
         var venesList = []
-
         this.props.venues.map((item) =>{
             let region = {
                 latitude: item.latlng.latitude,
@@ -93,15 +80,15 @@ class location extends Component{
         })
     }
     componentDidMount() {
-        if (this.state.markers.length>0) {
-            let zoomto = {
-                latitude:this.state.markers[0].region.latitude,
-                longitude: this.state.markers[0].region.longitude,
-                latitudeDelta: LONGITUDE_DELTA,
-                longitudeDelta: LONGITUDE_DELTA,
-            }
-            this._map.animateToRegion(zoomto, 100);
-        }
+        // if (this.state.markers.length>0) {
+        //     let zoomto = {
+        //         latitude:this.state.markers[0].region.latitude,
+        //         longitude: this.state.markers[0].region.longitude,
+        //         latitudeDelta: LONGITUDE_DELTA,
+        //         longitudeDelta: LONGITUDE_DELTA,
+        //     }
+        //     this._map.animateToRegion(zoomto, 100);
+        // }
     }
     onSearch = debounce(searchTerm => {
         let originalMarkers = this.state.originalMarkers
@@ -162,16 +149,20 @@ class location extends Component{
         dispatch(NavigationActions.back())
     }
 
+    onMapLayout = () => {
+        this.setState({ isMapReady: true });
+    }
+
     render(){
         return(
-            <View style ={styles.container}>
+            <Container style ={styles.container}>
                 <MapView
-                    showsUserLocation
                     ref={component => {this._map = component;}}
                     style={ styles.map }
-                    region={this.state.markers[0].region}
+                    region={this.state.markers.length > 0 ? this.state.markers[0].region : null}
+                    onLayout={this.onMapLayout}
                 >
-                    {this.state.markers.map((marker, index) => (
+                    {this.state.isMapReady && this.state.markers.map((marker, index) => (
                         <Marker
                             key = {index}
                             onPress={() => this.onClickMarker(marker.id) }
@@ -214,9 +205,9 @@ class location extends Component{
                     </View>
                 }
 
-						{
-	                        this.state.isLoading? <BallIndicator color = {'#2B3643'}  style = {styles.loadingBar}/> : null
-	                    }
+                {
+                    this.state.isLoading? <BallIndicator color = {'#2B3643'}  style = {styles.loadingBar}/> : null
+                }
                 <Toast
                     ref = 'toast'
                     style = {{backgroundColor: '#35e49c'}}
@@ -264,7 +255,7 @@ class location extends Component{
                         onClickedRecommend = {(params) => this.onClickedRecommend(params)}/>
                 </Modal>
 
-            </View>
+            </Container>
         )
     }
 }

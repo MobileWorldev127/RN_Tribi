@@ -36,18 +36,13 @@ class feedback extends Component{
         super(props);
         this.state = {
             comment: ''
-        }
-        
+        }        
     }
-    
-    componentWillMount() {
-    }
-
+  
     onClickedProfile(){
         var { dispatch } = this.props;
         dispatch(NavigationActions.navigate({routeName: 'userProfile'}));
     }
-
 
     onClickedBack(){
         Keyboard.dismiss()
@@ -86,11 +81,10 @@ class feedback extends Component{
                     </Right>
                 </Header>
                 <View style = {styles.mainContainer}>
-                    <AutoGrowingTextInput onChangeText={(text) => {
-                                        this.setState({
-                                            comment: text
-                                        })
-                                    }} style={styles.textInput} placeholder={'Type Comment'} />
+                    <AutoGrowingTextInput 
+                        underlineColorAndroid = "transparent"
+                        onChangeText={(text) => { this.setState({ comment: text }) }} 
+                        style={styles.textInput} placeholder={'Type Comment'} />
                     <Button transparent style = {styles.button} onPress = {() => this.onSubmit()} >
                         <View style = {styles.signinView}>
                             <Label style = {styles.signinTxt}>Submit</Label>
@@ -119,7 +113,6 @@ class feedback extends Component{
                 />
             </View>
         );
-
     }
 }
 function mapStateToProp(state) {

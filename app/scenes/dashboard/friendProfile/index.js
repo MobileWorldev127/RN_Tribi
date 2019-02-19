@@ -100,8 +100,6 @@ class friendProfile extends Component{
                 
                 </View>
 
-                
-
                 <View style = {styles.tabView}>
                     <TouchableOpacity  onPress = {() => this.onHome()}>
                         <View style = {styles.tabBtn}>
@@ -129,9 +127,6 @@ class friendProfile extends Component{
                         </View>
                     </TouchableOpacity>
                 </View>
-
-                
-
             </View>
         );
 

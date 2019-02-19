@@ -6,7 +6,7 @@ import {
     addNavigationHelpers,
     DrawerNavigator
 } from 'react-navigation';
-
+import { BackHandler } from 'react-native'
 import {
     createReduxBoundAddListener,
     createReactNavigationReduxMiddleware,
@@ -70,12 +70,38 @@ export const AppNavigator = StackNavigator({
     }
 );
 
-const AppWithNavigationState = ({dispatch, nav}) => (
-    <AppNavigator navigation={addNavigationHelpers({dispatch, state: nav, addListener})}/>
-);
+class AppWithNavigationState extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-const mapStateToProps = state => ({
-    nav: state.nav
-});
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', function() {
+            const { dispatch, navigation, nav } = this.props;
 
-export default connect(mapStateToProps)(AppWithNavigationState);
+            console.log(nav)
+            if(nav.index == 2) {
+                BackHandler.exitApp();
+            }
+
+            dispatch({ type: 'Navigation/BACK' });
+            return true;
+        }.bind(this));
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress');
+    }
+
+    render() {
+        return <AppNavigator navigation={addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.nav, addListener })} />
+    }
+}
+const mapStateToProps = (state) => {
+    return {
+        nav: state.nav
+    }
+};
+
+const A = connect(mapStateToProps)(AppWithNavigationState);
+export default A;

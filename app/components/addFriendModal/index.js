@@ -32,21 +32,8 @@ import styles from "./styles";
 import images from "../../themes/images";
 import { getAllMembers } from "../../actions";
 var Contacts = require("react-native-contacts");
-var available_phone_lables = [
-  "home",
-  "work",
-  "iphone",
-  "phone",
-  "mobile",
-  "main"
-];
-var contacts = [
-  { name: "Design Community", members: 12, isSelected: false },
-  { name: "Sport Community", members: 4, isSelected: false },
-  { name: "Music Community", members: 7, isSelected: false },
-  { name: "Travel Community", members: 10, isSelected: false },
-  { name: "Design Community", members: 12, isSelected: false }
-];
+
+
 function debounce(a, b, c) {
   var d, e;
   return function() {

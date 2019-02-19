@@ -88,7 +88,7 @@ export default{
         marginTop: 10
     },
     saveView: {
-        width: width - 50,
+        width: width - 60,
         height: 55,
         backgroundColor: '#33e098',
         borderRadius: 5,

@@ -152,7 +152,7 @@ class location extends Component{
     onMapLayout = () => {
         this.setState({ isMapReady: true });
     }
-
+ 
     render(){
         return(
             <Container style ={styles.container}>

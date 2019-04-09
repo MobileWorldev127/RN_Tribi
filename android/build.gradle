@@ -35,17 +35,9 @@ allprojects {
 ext {
     googlePlayServicesVersion = "+" // default: "+"
     firebaseVersion = "+" // default: "+"
- 
     // Other settings
-    compileSdkVersion = 25 // default: 23
-    buildToolsVersion = "25.0.1" // default: "23.0.1"
-    targetSdkVersion =25 // default: 23
-    supportLibVersion = "25.1.1" // default: 23.1.1
-
-    // compileSdkVersion   = 26
-    // targetSdkVersion    = 26
-    // buildToolsVersion   = "26.0.2"
-    // supportLibVersion   = "26.1.0"
-    // googlePlayServicesVersion = "11.8.0"
-    // androidMapsUtilsVersion = "0.5+"
+    compileSdkVersion = 26 // default: 23
+    buildToolsVersion = "26.0.1" // default: "23.0.1"
+    targetSdkVersion =26 // default: 23
+    supportLibVersion = "26.1.1" // default: 23.1.1
 }

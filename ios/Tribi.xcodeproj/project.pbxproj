@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -41,6 +40,7 @@
 		9A804A6BD3B54BC58782095D /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B8CB2224AE54A0C83508EE0 /* FontAwesome.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		AF197D562C3F497EB976D80A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 186BD075182E451B82A4455B /* Octicons.ttf */; };
+		B23BF25059D34E16B268D1B6 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72BD635F18A443F1B4D77C7E /* MaterialCommunityIcons.ttf */; };
 		B886A37DCAEF44159B0ABB3C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B162E31DBBD405BACCC9895 /* SimpleLineIcons.ttf */; };
 		C14D3FC2B503B1D6AB2ACC05 /* libPods-Tribi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E226EE35103562A48BF1E33 /* libPods-Tribi.a */; };
 		C42805CC20C8E87900B4A467 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C428059D20C8E87900B4A467 /* Fabric.framework */; };
@@ -55,7 +55,9 @@
 		C473DF8120B29F050067A30D /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C473DF8220B29F050067A30D /* libRNFS.a */; };
 		C47C5A3120ACB13200C58CD3 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C47C59FC20ACA03100C58CD3 /* libRCTContacts.a */; };
 		C4C0975820AB7AD200BB4875 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C0975720AB7AAA00BB4875 /* libRNImagePicker.a */; };
+		D4481E1D01A146B6B5B3ED2A /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0340AA6C9A64AE0A0571FE1 /* Feather.ttf */; };
 		F2B6E1557DC44C959BCF3FD0 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */; };
+		5FB3B533041740768C418F3A /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F18023A9374B52A193BA39 /* RNBackgroundFetch+AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -427,6 +429,7 @@
 		66FB9608A0F7456E9A20A7F6 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		6D541E25CDDA471E82033802 /* libAutoGrowTextInput.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAutoGrowTextInput.a; sourceTree = "<group>"; };
 		6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../app/assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
+		72BD635F18A443F1B4D77C7E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../app/assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B162E31DBBD405BACCC9895 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -436,6 +439,7 @@
 		A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../app/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		AA5DCDF725104A89953E7ECA /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B0340AA6C9A64AE0A0571FE1 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		B7A33F6751D642DF854BC34B /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BC72C6AF380D44598B4A8CFB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		C234F819BF33481AA1B97733 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../app/assets/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
@@ -453,6 +457,7 @@
 		C4C0975220AB7AAA00BB4875 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		C4C0977720AB7C0A00BB4875 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		C57A421AD43E4557ABFFD7FB /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		21F18023A9374B52A193BA39 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -594,6 +599,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				21F18023A9374B52A193BA39 /* RNBackgroundFetch+AppDelegate.m */,
 			);
 			name = Tribi;
 			sourceTree = "<group>";
@@ -821,6 +827,8 @@
 				72F9A52AB3524859A66858F4 /* Lato-Italic.ttf */,
 				6DDF73F821824A85B7A4FA65 /* Lato-Light.ttf */,
 				A4BD6F29288043EC902E5806 /* Lato-Regular.ttf */,
+				B0340AA6C9A64AE0A0571FE1 /* Feather.ttf */,
+				72BD635F18A443F1B4D77C7E /* MaterialCommunityIcons.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -860,7 +868,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8TS38292CF;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = true;
@@ -1329,6 +1337,8 @@
 				F2B6E1557DC44C959BCF3FD0 /* Lato-Italic.ttf in Resources */,
 				3EC51FB79E074B6681E1C123 /* Lato-Light.ttf in Resources */,
 				0D40896DF6104D78A0413503 /* Lato-Regular.ttf in Resources */,
+				D4481E1D01A146B6B5B3ED2A /* Feather.ttf in Resources */,
+				B23BF25059D34E16B268D1B6 /* MaterialCommunityIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1396,7 +1406,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 05deea7981df8b792f03405ef41119c2bdadc272 9d0f2eba9bc869a2d259c9d9ed67b8eb425877bd36048edb8ec98ccd35d64056";
+			shellScript = "./Fabric.framework/run 05deea7981df8b792f03405ef41119c2bdadc272 9d0f2eba9bc869a2d259c9d9ed67b8eb425877bd36048edb8ec98ccd35d64056\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1407,6 +1417,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				5FB3B533041740768C418F3A /* RNBackgroundFetch+AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1431,11 +1442,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Tribi/Tribi.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: TRIBI INC (8TS38292CF)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8TS38292CF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/GoogleMaps/Base/Frameworks\"",
@@ -1461,7 +1472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tribi.Tribi;
 				PRODUCT_NAME = Tribi;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Tribi_Pro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1472,10 +1483,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Tribi/Tribi.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: TRIBI INC (8TS38292CF)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8TS38292CF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/GoogleMaps/Base/Frameworks\"",
@@ -1501,7 +1512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tribi.Tribi;
 				PRODUCT_NAME = Tribi;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Tribi_Pro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

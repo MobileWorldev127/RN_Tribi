@@ -201,9 +201,6 @@ class signup extends Component {
       } else if (response.error) {
       } else if (response.customButton) {
       } else {
-        // let source = { uri: response.uri };
-
-        // You can also display the image using data:
         let source = { uri: "data:image/jpeg;base64," + response.data };
         let params = {
           user_id: 0,

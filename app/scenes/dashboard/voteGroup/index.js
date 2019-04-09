@@ -316,7 +316,7 @@ class voteGroup extends Component{
                         </TouchableOpacity>
                     }
                     {
-                        this.isMemberAddable() && <TouchableOpacity style = {styles.addfriendTouch} onPress = {() => {this.onAddMemberModal()}}>
+                        <TouchableOpacity style = {styles.addfriendTouch} onPress = {() => {this.onAddMemberModal()}}>
                             <Thumbnail source = {images.ic_friend_add} style = {styles.addfriendImg}/>
                         </TouchableOpacity>
                     }

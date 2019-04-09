@@ -15,7 +15,7 @@ export default {
         flexDirection: 'row',
         
         ...ifIphoneX ({
-            marginTop: 60,
+            marginTop: 40,
         },{
             marginTop: 30,
         }),

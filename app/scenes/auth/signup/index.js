@@ -201,7 +201,8 @@ class signup extends Component {
       } else if (response.error) {
       } else if (response.customButton) {
       } else {
-        let source = { uri: "data:image/jpeg;base64," + response.data };
+        // let source = { uri: "data:image/jpeg;base64," + response.data };
+        const source = { uri: response.uri };
         let params = {
           user_id: 0,
           photo: source
